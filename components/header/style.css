@@ -1,0 +1,41 @@
+.sidebar-enter {
+    transform: translateX(100%);
+}
+
+.sidebar-enter-active {
+    transform: translateX(0);
+    transition: transform 300ms ease-in-out;
+}
+
+/* Exiting: to right */
+.sidebar-exit {
+    transform: translateX(0);
+}
+
+.sidebar-exit-active {
+    transform: translateX(100%);
+    transition: transform 300ms ease-in-out;
+}
+
+
+.dropdown-enter {
+    transform: translateY(-20px);
+    opacity: 0;
+}
+
+.dropdown-enter-active {
+    transform: translateY(0);
+    opacity: 1;
+    transition:  300ms;
+}
+
+.dropdown-exit {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.dropdown-exit-active {
+    opacity: 0;
+    transition: 300ms;
+    transform: translateY(-20px);
+}
