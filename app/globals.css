@@ -12,3 +12,16 @@
 li::marker {
   background-color: red;
 }
+
+@media only screen and (max-width : 768px) {
+  .brand-box {
+    box-shadow: 0px 0px 30px 10px rgba(106, 0, 255, 0.295)
+  }
+}
+
+.no-scrollbar {
+  overflow: auto;
+  scrollbar-width: none;
+  /* Firefox */
+  -ms-overflow-style: none;
+}

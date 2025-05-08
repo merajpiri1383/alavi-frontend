@@ -15,8 +15,8 @@ const Introduction: FC = () => {
 
     return (
         <section className="grid grid-cols-5 relative z-0 bg-[#F8F8F8] rtl overflow-hidden 
-            px-6 pt-6 md:px-16 gap-24 pb-16">
-            <section className="col-span-5 md:col-span-3">
+             pt-6 md:px-16 gap-24 pb-16">
+            <section className="col-span-5 md:col-span-3 px-6">
                 {/* Watermark Icon Positioned Absolutely */}
                 <div className="absolute top-0 size-24 -right-5 md:size-32 z-0 pointer-events-none">
                     <FourIcon />
