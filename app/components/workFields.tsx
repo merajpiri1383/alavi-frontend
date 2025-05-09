@@ -2,8 +2,9 @@ import { memo } from "react";
 import DocumentIcon from "@/components/icons/home/document";
 import NetIcon from "@/components/icons/home/net";
 import Image from "next/image";
+import RectangleIcon from "@/components/icons/home/rectangle";
 /* Rectangle 6004 */
-
+ 
 // const Item = () => {
 //     return (
 //         <article className="size-60 relative p-6 group cursor-pointer hover:shadow-2xl">
@@ -59,16 +60,16 @@ const WorkFields = () => {
     ]
 
     return (
-        <div className="bg-white rtl my-6 px-6 md:px-12">
+        <div className="bg-white rtl my-6 px-6 md:px-20">
             <div className="flex items-center justify-start gap-4">
-                <div className="bg-[#524CF21A] size-12 rounded-lg flex items-center justify-center">
-                    <div className="size-6">
+                <div className="bg-[#524CF21A] size-12 md:size-14 rounded-lg flex items-center justify-center">
+                    <div className="size-6 md:size-8">
                         <DocumentIcon color={"#524CF2"} />
                     </div>
                 </div>
                 <div>
-                    <p className="font-medium text-base">زمینه های کاری من</p>
-                    <p className="text-sm mt-2 text-[#696973]">خدمات و سرویس های اراﺋﻪ دهنده</p>
+                    <p className="font-semibold text-sm md:text-base">زمینه های کاری من</p>
+                    <p className="text-xs md:text-sm mt-2 text-[#696973]">خدمات و سرویس های اراﺋﻪ دهنده</p>
                 </div>
             </div>
 
