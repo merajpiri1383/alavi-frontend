@@ -1,8 +1,8 @@
 import { memo } from "react";
 import DocumentIcon from "@/components/icons/home/document";
-import NetIcon from "@/components/icons/home/net";
-import Image from "next/image";
-import RectangleIcon from "@/components/icons/home/rectangle";
+// import NetIcon from "@/components/icons/home/net";
+// import Image from "next/image";
+// import RectangleIcon from "@/components/icons/home/rectangle";
 /* Rectangle 6004 */
  
 // const Item = () => {
@@ -20,44 +20,44 @@ import RectangleIcon from "@/components/icons/home/rectangle";
 //     )
 // }
 
-const Item = () => {
-    return (
-        <div className=" bg-rose-600">
-        </div>
-    )
-};
+// const Item = () => {
+//     return (
+//         <div className=" bg-rose-600">
+//         </div>
+//     )
+// };
 
 
 const WorkFields = () => {
 
-    const items = [
-        {
-            icon: <NetIcon color={"#2B2B2B"} />,
-            active_icon: <NetIcon color={"#524CF2"} />,
-            title: "طراحی و توسعه وﺑﺴﺎﯾﺖ",
-            text: "Website Development",
-        }, {
-            icon: <NetIcon color={"#2B2B2B"} />,
-            active_icon: <NetIcon color={"#524CF2"} />,
-            title: "طراحی و توسعه وﺑﺴﺎﯾﺖ",
-            text: "Website Development",
-        }, {
-            icon: <NetIcon color={"#2B2B2B"} />,
-            active_icon: <NetIcon color={"#524CF2"} />,
-            title: "طراحی و توسعه وﺑﺴﺎﯾﺖ",
-            text: "Website Development",
-        }, {
-            icon: <NetIcon color={"#2B2B2B"} />,
-            active_icon: <NetIcon color={"#524CF2"} />,
-            title: "طراحی و توسعه وﺑﺴﺎﯾﺖ",
-            text: "Website Development",
-        }, {
-            icon: <NetIcon color={"#2B2B2B"} />,
-            active_icon: <NetIcon color={"#524CF2"} />,
-            title: "طراحی و توسعه وﺑﺴﺎﯾﺖ",
-            text: "Website Development",
-        },
-    ]
+    // const items = [
+    //     {
+    //         icon: <NetIcon color={"#2B2B2B"} />,
+    //         active_icon: <NetIcon color={"#524CF2"} />,
+    //         title: "طراحی و توسعه وﺑﺴﺎﯾﺖ",
+    //         text: "Website Development",
+    //     }, {
+    //         icon: <NetIcon color={"#2B2B2B"} />,
+    //         active_icon: <NetIcon color={"#524CF2"} />,
+    //         title: "طراحی و توسعه وﺑﺴﺎﯾﺖ",
+    //         text: "Website Development",
+    //     }, {
+    //         icon: <NetIcon color={"#2B2B2B"} />,
+    //         active_icon: <NetIcon color={"#524CF2"} />,
+    //         title: "طراحی و توسعه وﺑﺴﺎﯾﺖ",
+    //         text: "Website Development",
+    //     }, {
+    //         icon: <NetIcon color={"#2B2B2B"} />,
+    //         active_icon: <NetIcon color={"#524CF2"} />,
+    //         title: "طراحی و توسعه وﺑﺴﺎﯾﺖ",
+    //         text: "Website Development",
+    //     }, {
+    //         icon: <NetIcon color={"#2B2B2B"} />,
+    //         active_icon: <NetIcon color={"#524CF2"} />,
+    //         title: "طراحی و توسعه وﺑﺴﺎﯾﺖ",
+    //         text: "Website Development",
+    //     },
+    // ]
 
     return (
         <div className="bg-white rtl my-6 px-6 md:px-20">

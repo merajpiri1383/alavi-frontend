@@ -1,5 +1,4 @@
 "use client"
-
 import { FC, memo, useState } from "react";
 import Image from "next/image";
 import AlaviImage from "@/public/images/alavi.svg";
@@ -121,7 +120,7 @@ const Story = () => {
 
 const AboutMe: FC = () => {
 
-    const [open,setOpen] = useState<true | false>(false);
+    const [open, setOpen] = useState<true | false>(false);
 
     const hobbies: ItemType[] = [
         {
@@ -165,7 +164,8 @@ const AboutMe: FC = () => {
     return (
         <div className="grid grid-cols-1 md:grid-cols-3 select-none">
             <AboutMeImage />
-            <div className={`col-span-1 md:col-span-2 px-6 md:px-20 ${open && "h-[85vh] overflow-y-scroll"}`}>
+            <div className={`col-span-1 md:col-span-2 px-6 md:px-20 no-scrollbar
+                ${!open && "h-[85vh] overflow-y-scroll"}`}>
                 <Box title="تفریحات من" data={hobbies} />
                 <Box title="نویسنده مورد علاقم" data={writers} />
                 <Box title="علایق من" data={favorites} />
@@ -173,13 +173,13 @@ const AboutMe: FC = () => {
             </div>
             <div className="col-span-1"></div>
             <div
-                style={{boxShadow : "0px -10px 10px 5px white"}} 
+                style={{ boxShadow: "0px -10px 10px 5px white" }}
                 className="w-full flex col-span-1 md:col-span-2 items-center justify-center">
                 <div className="flex items-center justify-center gap-2 my-2 active:scale-95 transition
                     hover:scale-125 cursor-pointer" onClick={() => setOpen(!open)}>
                     <div className="size-5">
                         {
-                            open ? <ArrowDownIcon /> : <ArrowUpIcon />
+                            open ? <ArrowUpIcon /> : <ArrowDownIcon />
                         }
                     </div>
                     <p>مشاهده بیشتر</p>
