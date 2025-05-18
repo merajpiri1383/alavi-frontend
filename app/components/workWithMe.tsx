@@ -1,0 +1,97 @@
+import { FC, memo, ReactNode } from "react";
+import WorkWithMeIcon from "@/components/icons/home/workWithMe";
+import MessageTickIcon from "@/components/icons/home/messageTick";
+import SendIcon from "@/components/icons/home/send";
+import NoteIcon from "@/components/icons/home/note";
+import StoryIcon from "@/components/icons/home/story";
+
+
+interface WorkWithMeType {
+    active_icon: ReactNode,
+    icon: ReactNode,
+    title: string,
+    text: string,
+}
+
+
+const Item: FC<WorkWithMeType> = ({ active_icon, icon, text, title }) => {
+    return (
+        <div className="p-4 rounded-[16px] group hover:shadow-xl my-6 cursor-pointer transition duration-400
+            min-w-64">
+            <div className="size-[45px] border-[1.5px] border-[#E1E1E1] flex items-center justify-center
+                rounded-[10px] group-hover:bg-[#524CF2] transition duration-400">
+                <div className="size-[25px] group-hover:hidden">{icon}</div>
+                <div className="size-[25px] group-hover:block hidden">{active_icon}</div>
+            </div>
+            <p className="text-[14px] mt-4 my-2 font-[700] text-[#0D0E11]">{title}</p>
+            <p className="text-[11px] my-2 font-[600] text-[#8B8B9A]">{text}</p>
+
+            <div className="group-hover:text-[#FFFFFF] font-[600] text-[10px] bg-[#F2F2F2] 
+            rounded-[8px] w-fit p-3 my-3 cursor-pointer group-hover:bg-[#292D32]
+            transition duration-400 text-[#3D3D3D]">درخواست فرم</div>
+        </div>
+    )
+};
+
+const WorkWithMe = () => {
+
+    const data: WorkWithMeType[] = [
+        {
+            active_icon: <StoryIcon color="white" />,
+            icon: <StoryIcon />,
+            title: "درخواﺳﺖ جلسه حضوری، آنلاین",
+            text: "برای آشنایی، گفت گوی اولیه یا بررسی کلیه پروژه",
+        }, {
+            active_icon: <NoteIcon color="white" />,
+            icon: <NoteIcon />,
+            title: "توضیح پروژه، دریافت مشاوره تخصصی",
+            text: "فرصتی برای بررسی نیاز ها و دریافت دیدگاه حرفه ای",
+        }, {
+            active_icon: <SendIcon color="white" />,
+            icon: <SendIcon />,
+            title: "ارسال رزومه برای همکاری شغلی، پروژه ای",
+            text: "اگه میخوای وارد تیم حرفه ای ما بشی!",
+        }, {
+            active_icon: <MessageTickIcon color="white" />,
+            icon: <MessageTickIcon />,
+            title: "درخواست بررسی رایگان پروژه، وبسایت",
+            text: "اگه نیاز به بررسی سیستم فعلیتون دارید.",
+        },
+    ]
+
+    return (
+        <div className="bg-white rtl px-6 md:px-20 relative select-none my-12">
+            <div className="flex items-center gap-4 justify-start mb-6">
+                <div className="bg-[#524CF21A] size-12 md:size-14 rounded-lg flex items-center justify-center">
+                    <div className="size-6 md:size-8">
+                        <WorkWithMeIcon color={"#524CF2"} />
+                    </div>
+                </div>
+                <div>
+                    <p className="font-semibold text-sm md:text-base">
+                        فرصت های همکاری با من
+                    </p>
+                    <p className="text-xs md:text-sm mt-2 text-[#696973]">
+                        حوزه های شغلی در پوزیشن کاری متفاوت
+                    </p>
+                </div>
+            </div>
+
+            <div className="flex z-5 overflow-x-scroll no-scrollbar py-12 md:py-0 md:grid md:grid-cols-4 gap-4">
+                {
+                    data.map((item, index) => {
+                        return (
+                            <Item
+                                active_icon={item.active_icon}
+                                icon={item.icon}
+                                text={item.text}
+                                title={item.title}
+                                key={index}
+                            />
+                        )
+                    })
+                }
+            </div>
+        </div>
+    )
+}; export default memo(WorkWithMe);
