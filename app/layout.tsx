@@ -14,6 +14,7 @@ const yekanBakhFont = localFont({
 })
 
 const Header = dynamic(() => import("@/components/header/index"),{ssr : true});
+const Footer = dynamic(() => import("@/components/footer"), { ssr: true });
 
 
 export const metadata: Metadata = {
@@ -33,6 +34,7 @@ export default function RootLayout({
             >
                 <Header />
                 {children}
+                <Footer />
             </body>
         </html>
     );

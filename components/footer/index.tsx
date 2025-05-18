@@ -14,7 +14,7 @@ const Index = () => {
     const device = useDeviceType();
 
     return (
-        <section className="bg-[#F3F3F3] pt-12">
+        <section className="bg-[#F3F3F3] pt-12 select-none">
             {
                 device === "desktop" &&
                 <div className="px-12 grid grid-cols-7 gap-4">
