@@ -5,6 +5,10 @@
   font-family: var(--font-yekan-bakh);
 }
 
+.font-sheed {
+  font-family: var(--font-sheed) !important;
+}
+
 .rtl {
   direction: rtl;
 }

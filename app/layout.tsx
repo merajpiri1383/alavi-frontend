@@ -13,6 +13,16 @@ const yekanBakhFont = localFont({
     variable : "--font-yekan-bakh"
 })
 
+const SheedFont = localFont({
+    src : [
+        {
+            path : "../public/fonts/TKT-Sheed semi bold.otf",
+            style : "normal",
+        },
+    ],
+    variable : "--font-sheed"
+})
+
 const Header = dynamic(() => import("@/components/header/index"),{ssr : true});
 const Footer = dynamic(() => import("@/components/footer"), { ssr: true });
 
@@ -30,7 +40,7 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body
-                className={`${yekanBakhFont.variable}`}
+                className={`${yekanBakhFont.variable} ${SheedFont.variable}`}
             >
                 <Header />
                 {children}
