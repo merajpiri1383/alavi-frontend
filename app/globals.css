@@ -25,3 +25,13 @@ li::marker {
   /* Firefox */
   -ms-overflow-style: none;
 }
+
+/* default (inactive) bullet */
+.swiper-pagination-bullet {
+  @apply w-1.5 mx-auto cursor-pointer h-1.5 bg-gray-400 rounded-full opacity-70 transition-all;
+}
+
+/* active bullet */
+.swiper-pagination-bullet-active {
+  @apply w-2.5 mx-auto cursor-pointer h-2.5 bg-white opacity-100;
+}

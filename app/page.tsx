@@ -6,6 +6,7 @@ const BrandsWorked = dynamic(() => import("@/app/components/brandsWorked"), { ss
 const DoneProjects = dynamic(() => import("@/app/components/doneProjects"), { ssr: true });
 const Skills = dynamic(() => import("@/app/components/skills"), { ssr: true });
 const WorkWithMe = dynamic(() => import("@/app/components/workWithMe"), { ssr: true });
+const MyNotes = dynamic(() => import("@/app/components/myNotes"),{ssr : true});
 const Socials = dynamic(() => import("@/app/components/socials"), { ssr: true });
 
 export default function Home() {
@@ -17,6 +18,7 @@ export default function Home() {
             <BrandsWorked />
             <DoneProjects />
             <Skills />
+            <MyNotes />
             <WorkWithMe />
             <Socials />
         </>
