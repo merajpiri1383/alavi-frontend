@@ -1,7 +1,7 @@
 "use client"
 import { FC } from "react";
 import Image, { StaticImageData } from "next/image";
-import React, { useRef } from "react";
+import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";

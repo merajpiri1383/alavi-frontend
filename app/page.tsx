@@ -10,6 +10,7 @@ const MyNotes = dynamic(() => import("@/app/components/myNotes"),{ssr : true});
 const Kairo = dynamic(() => import("@/app/components/kairo"),{ssr : true});
 const Form = dynamic(() => import("@/app/components/form"),{ssr : true});
 const Socials = dynamic(() => import("@/app/components/socials"), { ssr: true });
+const MyExperience = dynamic(() => import("@/app/components/myExperience"),{ssr : true});
 
 export default function Home() {
     return (
@@ -19,6 +20,7 @@ export default function Home() {
             <AboutMe />
             <BrandsWorked />
             <DoneProjects />
+            <MyExperience />
             <Skills />
             <MyNotes />
             <WorkWithMe />

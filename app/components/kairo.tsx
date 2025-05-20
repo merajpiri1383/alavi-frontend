@@ -10,7 +10,7 @@ const Kairo = () => {
     return (
         <div className="grid grid-cols-7 rtl px-6 md:px-20 my-12 gap-8 select-none">
             <div className="col-span-7 md:col-span-2">
-                <div className="relative h-[280px] w-full">
+                <div className="relative h-[280px] w-full z-[1]">
                     <Image
                         src={KairoBg}
                         alt="kairo bg"
@@ -20,6 +20,22 @@ const Kairo = () => {
                         style={{ objectFit: "cover", objectPosition: "center" }}
                         priority={false}
                     />
+                    <div className="absolute top-0 left-0 right-0 bottom-0 z-[2] flex items-center 
+                    justify-center">
+                        <div>
+                            <div className="size-[100px] relative mx-auto">
+                                <Image 
+                                    src={KairoIcon}
+                                    alt="kairo icon"
+                                    fill={true}
+                                    sizes="100%"
+                                    priority={false}
+                                />
+                            </div>
+                            <p className="text-[18px] text-[#FFFFFF] font-[600]">
+                            Kairo Digital Marketing Startup</p>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div className="col-span-7 md:col-span-5 flex items-center justify-start">
