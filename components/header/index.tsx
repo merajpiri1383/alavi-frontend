@@ -15,16 +15,23 @@ const Header: FC = () => {
 
     const deviceType = useDeviceType();
     const [showPopup, setShowPop] = useState<true | false>(false);
+    const [showForm,setShowForm] = useState<true | false>(false);
     const nodeRef = useRef(null);
 
     const hideHandler = (): void => {
         setShowPop(false);
+        setShowForm(false);
     }
 
     const showHandler = (e: React.MouseEvent<HTMLDivElement>) => {
         e.stopPropagation();
         setShowPop(!showPopup);
     };
+
+    const FormShowHandler = (e : React.MouseEvent<HTMLDivElement>) => {
+        e.stopPropagation();
+        setShowForm(!showForm);
+    }
 
     useEffect(() => {
         window.addEventListener("click", hideHandler);
@@ -45,7 +52,9 @@ const Header: FC = () => {
                     </div>
                 </div>
 
-                <div className="p-3 px-4 hidden md:block rounded-lg bg-[#524CF2]">
+                <div 
+                    onClick={FormShowHandler} className="p-3 px-4 hidden md:block rounded-lg bg-[#524CF2]
+                    active:scale-95 hover:scale-110 transition duration-300 cursor-pointer">
                     <p className="text-sm text-white font-medium">فرصت های همکاری با من</p>
                 </div>
 
@@ -88,6 +97,11 @@ const Header: FC = () => {
             {
                 showPopup &&
                 <div className="fixed top-0 bottom-0 left-0 right-0 bg-[#00000080] z-10"></div>
+            }
+
+            {
+                showForm &&
+                <div className="fixed top-0 bottom-0 left-0 right-0 bg-[#00000080] z-[20]"></div>
             }
         </>
     )
