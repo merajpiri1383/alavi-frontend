@@ -16,19 +16,19 @@ interface ItemProps {
  
 const Item : FC<ItemProps> = ({active_icon,icon,text,title }) => {
     return (
-        <article className="relative py-2 md:py-6 group cursor-pointer hover:shadow-2xl col-span-1
+        <article className="relative py-2 md:py-6 group cursor-pointer col-span-1
             transition duration-400 border-[2px] border-[#E1E1E1] hover:border-[#4B5BCE] 
-            rounded-[20px] min-w-[135px]">
-            <div className="relative z-10 size-[32px] md:size-[60px] mx-auto my-2 group-hover:hidden">
+            rounded-[20px] min-w-[135px] hover:shadow-[0_0_20px_rgba(0,0,0,0.25)]">
+            <div className="relative z-10 size-[32px] md:size-[55px] mx-auto my-2 group-hover:hidden">
                 {icon}
             </div>
-            <div className="size-[32px] relative md:size-[60px] z-10 mx-auto my-2 hidden group-hover:block">
+            <div className="size-[32px] relative md:size-[55px] z-10 mx-auto my-2 hidden group-hover:block">
                 {active_icon}
             </div>
             <p className="text-[#2B2B2B] z-10 text-[10px] text-center font-[700] my-2
                 md:text-[16px] mt-6">{title}</p>
             <p className="text-[#727379] z-10 text-[8px] text-center my-2
-            font-[600] md:text-[16px]">{text}</p>
+            font-[400] md:text-[16px]">{text}</p>
         </article>
     )
 }
@@ -66,7 +66,7 @@ const WorkFields = () => {
     ]
 
     return (
-        <div className="bg-white rtl my-6 px-6 md:px-20">
+        <div className="bg-white rtl my-6 px-6 md:px-20" id="workfields">
             <div className="flex items-center justify-start gap-4">
                 <div className="bg-[#524CF21A] size-12 md:size-14 rounded-lg flex items-center justify-center">
                     <div className="size-6 md:size-8">

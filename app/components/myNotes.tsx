@@ -24,7 +24,7 @@ interface NoteProps {
 
 const Note: FC<NoteProps> = ({ image, date, title }) => {
     return (
-        <div className="col-span-1 flex items-center justify-start gap-2 my-4 md:my-0">
+        <div className="col-span-1 flex items-center justify-start gap-2 my-4 md:my-0" id="my_notes">
             <div className="size-[60px] md:size-[75px] relative">
                 <Image
                     src={image}

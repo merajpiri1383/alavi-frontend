@@ -7,6 +7,7 @@ import StarIcon from "@/components/icons/home/star";
 import SquareIcon from "@/components/icons/home/square";
 import ArrowDownIcon from "@/icons/header/arrowDown";
 import ArrowUpIcon from "@/icons/header/arrowUp";
+import { Slide } from "react-awesome-reveal";
 
 interface ItemType {
     title: string,
@@ -28,7 +29,8 @@ const AboutMeImage = () => {
             <div className="w-fit mx-auto my-12 relative z-[3]">
                 <div
                     style={{ backgroundImage: "linear-gradient(to bottom , #8792E3,#BBC2F2,#C9CEEE)" }}
-                    className="h-80 w-48 rounded-full overflow-hidden relative ">
+                    className="h-[327px] w-[206px] rounded-full overflow-hidden relative
+                    md:h-[450px] md:w-[280px]">
                     <Image
                         src={AlaviImage}
                         alt="alavi image"
@@ -38,19 +40,22 @@ const AboutMeImage = () => {
                     />
                 </div>
 
-                <div className="absolute -left-4 -top-4 size-20">
+                <div className="absolute -left-4 -top-4 md:-left-1 md:-top-1 size-20">
                     <FourIcon color={"#0D0E11"} />
                 </div>
             </div>
 
-            <div className="size-12 absolute top-8 right-6">
+            <div className="size-12 absolute top-8 right-6 md:hidden">
                 <StarIcon />
             </div>
+
+            <div className="text-[#0D0E11] absolute -left-5 bottom-[50%] rotate-270
+            font-[700] text-[20px] md:text-[25px]">Alireza Alavi</div>
 
             <div className="size-8 absolute bottom-12 left-10 z-[2]">
                 <StarIcon />
             </div>
-            <div className="size-20 absolute bottom-16 left-16 z-[1]">
+            <div className="size-28 absolute bottom-16 left-16 z-[1]">
                 <div className="w-full h-full relative">
                     <SquareIcon />
                     <div className="top-[50%] left-[50%] absolute"
@@ -163,7 +168,9 @@ const AboutMe: FC = () => {
 
     return (
         <div className="grid grid-cols-1 md:grid-cols-3 select-none">
-            <AboutMeImage />
+            <Slide duration={300} triggerOnce direction="up">
+                <AboutMeImage />
+            </Slide>
             <div className={`col-span-1 md:col-span-2 px-6 md:px-20 no-scrollbar
                 ${!open && "h-[85vh] overflow-y-scroll"}`}>
                 <Box title="تفریحات من" data={hobbies} />
@@ -175,8 +182,8 @@ const AboutMe: FC = () => {
             <div
                 style={{ boxShadow: "0px -10px 10px 5px white" }}
                 className="w-full flex col-span-1 md:col-span-2 items-center justify-center">
-                <div className="flex items-center justify-center gap-2 my-2 active:scale-95 transition
-                    hover:scale-125 cursor-pointer" onClick={() => setOpen(!open)}>
+                <div className="flex items-center justify-center gap-2 my-2
+                    cursor-pointer" onClick={() => setOpen(!open)}>
                     <div className="size-5">
                         {
                             open ? <ArrowUpIcon /> : <ArrowDownIcon />

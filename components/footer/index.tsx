@@ -2,6 +2,7 @@
 import dynamic from "next/dynamic";
 import CopryRight from "@/components/footer/copyright";
 import About from "@/components/footer/about";
+import LineIcon from "@/icons/footer/line";
 const Projects = dynamic(() => import("@/components/footer/projects"), { ssr: false });
 const WorkWithMe = dynamic(() => import("@/components/footer/workWithMe"), { ssr: false });
 const Socials = dynamic(() => import("@/components/footer/socials"), { ssr: false })
@@ -17,7 +18,7 @@ const Index = () => {
         <section className="bg-[#F3F3F3] pt-12 select-none">
             {
                 device === "desktop" &&
-                <div className="px-12 grid grid-cols-7 gap-4">
+                <div className="px-12 grid grid-cols-7 gap-2">
                     <div className="col-span-1">
                         <Socials mobile={false} />
                     </div>
@@ -36,6 +37,9 @@ const Index = () => {
             {
                 device === "desktop" &&
                 <div className="px-12">
+                    <div className="h-[2px] w-full mt-6">
+                        <LineIcon />
+                    </div>
                     <Contact />
                 </div>
             }
@@ -47,7 +51,9 @@ const Index = () => {
                     <Projects />
                     <WorkWithMe />
                     <Socials mobile={true} />
-                    <div className="h-[2px] w-full bg-[#DADADA] my-6"></div>
+                    <div className="h-[2px] w-full my-6">
+                        <LineIcon />
+                    </div>
                     <Contact />
                 </div>
             }

@@ -8,7 +8,7 @@ import ArrowLeftIcon from "@/components/icons/home/arrowLeft";
 
 const Kairo = () => {
     return (
-        <div className="grid grid-cols-7 rtl px-6 md:px-20 my-12 gap-8 select-none">
+        <div className="grid grid-cols-7 rtl px-6 md:px-20 my-12 gap-8 select-none" id="kairo">
             <div className="col-span-7 md:col-span-2">
                 <div className="relative h-[280px] w-full z-[1]">
                     <Image
@@ -52,8 +52,7 @@ const Kairo = () => {
                         می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان میباشد.</p>
 
                     <div className="flex items-center justify-center p-3 w-fit border-[1.5px]
-                        border-[#E7E7E7] rounded-[10px] gap-2 my-6 hover:scale-115 active:scale-95 
-                        transition duration-300 cursor-pointer">
+                        border-[#E7E7E7] rounded-[10px] gap-2 my-6 cursor-pointer">
                         <p className="text-[#2B2B2B] font-[600] text-[14px]">به سمت کایرو حرکت کن</p>
                         <div className="size-5">
                             <ArrowLeftIcon />

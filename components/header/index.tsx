@@ -40,8 +40,8 @@ const Header: FC = () => {
 
     return (
         <>
-            <div className="flex items-center md:relative bg-[#F8F8F8] z-20 justify-between 
-                py-12 md:py-6 px-4 md:px-16 select-none">
+            <div className="flex items-center md:sticky top-0 bg-[#F8F8F8] z-20 justify-between 
+                py-12 md:py-6 px-4 md:px-16 select-none ">
 
                 <div
                     onClick={showHandler}
@@ -54,7 +54,7 @@ const Header: FC = () => {
 
                 <div 
                     onClick={FormShowHandler} className="p-3 px-4 hidden md:block rounded-lg bg-[#524CF2]
-                    active:scale-95 hover:scale-110 transition duration-300 cursor-pointer">
+                    cursor-pointer">
                     <p className="text-sm text-white font-medium">فرصت های همکاری با من</p>
                 </div>
 

@@ -3,6 +3,7 @@
 
 * {
   font-family: var(--font-yekan-bakh);
+  scroll-behavior: smooth;
 }
 
 .font-sheed {

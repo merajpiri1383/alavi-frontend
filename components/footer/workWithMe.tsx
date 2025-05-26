@@ -8,7 +8,7 @@ const WorkWithMe = () => {
 
     return (
         <>
-            <div className="flex items-center justify-between bg-white p-3 rounded-[8px] my-3 md:my-0
+            <div className="flex items-center justify-between bg-white py-3 rounded-[8px] my-3 md:my-0
             md:bg-inherit md:justify-end">
                 <div className="size-6 md:hidden active:scale-95 hover:scale-115 transition cursor-pointer"
                     onClick={() => setOpen(!open)}>
@@ -19,7 +19,7 @@ const WorkWithMe = () => {
                 <p className="text-[12px] font-[700] text-[#0D0E11]
                 md:text-[14px]">فرصت همکاری با من</p>
             </div>
-            <div className="rtl px-3 text-[14px] font-[600] text-[#8B8B9A] leading-6 hidden md:block">
+            <div className="rtl text-[14px] font-[400] text-[#8B8B9A] leading-6 hidden md:block">
                 <p>لورم صنعت اپیسوم </p>
                 <p>لورم صنعت اپیسوم </p>
                 <p>لورم صنعت اپیسوم </p>

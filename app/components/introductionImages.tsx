@@ -15,6 +15,7 @@ const ProjectBox = memo(() => {
             <Slide
                 direction="up"
                 duration={1500}
+                triggerOnce
                 className="h-32 w-full rounded-br-3xl bg-[#E2E2FF] ">
                     <Icon2 className={"absolute top-0"} />
             </Slide>
@@ -27,7 +28,7 @@ ProjectBox.displayName = "ProjectBox"
 
 const SeniorBox = memo(() => {
     return (
-        <Slide direction="up" className="bottom-4 -right-14 absolute" duration={1500}>
+        <Slide direction="up" className="bottom-4 -right-14 absolute" duration={1500} triggerOnce>
             <div className="bg-white p-2 px-4 rounded-xl flex 
             items-center justify-start gap-2">
                 <div className="size-8 bg-[#F6F6F6] flex items-center justify-center rounded-full">
@@ -70,11 +71,10 @@ const IntroductionImages = () => {
         <div className="grid grid-cols-2 items-center gap-4">
             <div className="col-span-1 grid grid-cols-1 h-full">
                 <div className="col-span-1 relative h-64 w-full self-start">
-                    <Slide className="h-64 w-full relative" direction="right">
+                    <Slide className="h-64 w-full relative" direction="right" triggerOnce>
                         <Image
                             src={Image2}
                             alt="image1"
-                            className="rounded-tr-[3rem]"
                             style={{ objectFit: "cover", objectPosition: "center" }}
                             priority={false}
                             fill={true}
@@ -88,7 +88,7 @@ const IntroductionImages = () => {
                 <ProjectBox />
             </div>
             <div className="col-span-1 grid grid-cols-1 gap-4 h-full">
-                <Slide duration={1500} className="col-span-1 self-start" direction="left">
+                <Slide duration={1500} className="col-span-1 self-start" direction="left" triggerOnce>
                     <div className="relative h-48 w-full">
                         <Image
                             src={Image3}
@@ -106,6 +106,7 @@ const IntroductionImages = () => {
                 <Slide
                     className="col-span-1 relative self-end h-48 w-full"
                     direction="up"
+                    triggerOnce
                     duration={1500}>
                     <Image
                         src={Image1}
@@ -113,7 +114,6 @@ const IntroductionImages = () => {
                         priority={false}
                         style={{ objectFit: "cover", objectPosition: "center" }}
                         fill={true}
-                        className="rounded-bl-[4rem]"
                         sizes="100%"
                     />
                 </Slide>

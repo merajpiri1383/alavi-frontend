@@ -24,8 +24,9 @@ const Introduction: FC = () => {
 
                 {/* Main Content */}
                 <div className="flex items-center justify-start gap-1 rtl relative z-10">
-                    <h1 className="text-[#0D0E11] font-bold text-lg md:text-3xl">علیرضا علوی هستم!</h1>
-                    <div className="size-12 md:size-16 md:mb-4 relative">
+                    <h1 className="text-[#0D0E11] font-[900] text-[17.24px] md:text-3xl font-sheed
+                    md:text-[40px]">علیرضا علوی هستم!</h1>
+                    <div className="size-12 md:size-16 relative">
                         <Image
                             src={AlirezaEmoji}
                             alt="Alireza emoji"
@@ -37,9 +38,9 @@ const Introduction: FC = () => {
                         />
                     </div>
                 </div>
-                <p className="text-xs md:text-2xl md:my-4 z-10 relative text-[#4B5BCE] font-semibold">
-                    راهبر پروژه های دیجیتال و طراح تجربه فنی برای کسب و کار ها
-                </p>
+                <p className="text-[13.91px] md:text-[30px] z-10 relative text-[#4B5BCE] font-[600] 
+                font-sheed "
+                >راهبر پروژه های دیجیتال و طراح تجربه فنی برای کسب و کار ها</p>
                 <p className="text-xs md:text-sm text-justify my-2 text-[#69696F] leading-6 z-10">لورم ایپسوم
                     متن ساختگی با تولید
                     سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. لورم

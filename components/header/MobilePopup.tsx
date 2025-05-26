@@ -4,6 +4,7 @@ import LogoIcon from "@/icons/header/logo";
 import ArrowDownIcon from "@/icons/header/arrowDown";
 import ArrowUpIcon from '@/icons/header/arrowUp';
 import "@/components/header/style.css";
+import Link from "next/link";
 
 
 const DownLink = () => {
@@ -54,10 +55,10 @@ const DownLink = () => {
 const DropDown: FC = () => {
     return (
         <div className="col-span-1 border-r-2 text-[##0D0E11] border-[#D9D9D9] text-xs px-3">
-            <p className="my-2">زمینه های ﮐﺎری ﻣﻦ</p>
-            <p className="my-2">رزومه من</p>
-            <p className="my-2">کایرو سیستم</p>
-        </div>
+            <p className="my-2"><Link href={"#workfields"}>زمینه های ﮐﺎری ﻣﻦ</Link></p>
+            <p className="my-2"><Link href={"#"}>رزومه من</Link></p>
+            <p className="my-2"><Link href={"#kairo"}>کایرو سیستم</Link></p>
+        </div> 
     )
 };
 

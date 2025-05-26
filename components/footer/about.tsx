@@ -2,6 +2,7 @@
 
 import LogoIcon from "@/icons/header/logo";
 import ArrowUp from "@/icons/footer/arrowUp";
+import FourIcon from "../icons/home/four";
 import { FC } from "react";
 
 interface Props {
@@ -33,7 +34,17 @@ const About : FC<Props> = ({ is_mobile }) => {
                     }
                 </div>
 
-                <div className="flex items-center justify-end gap-4 bg-white p-2 pl-12 rounded-[10px]">
+                <div className="flex items-center justify-end gap-4 bg-white 
+                    p-2 pl-12 rounded-[10px] relative">
+                    <div className="size-[15px] absolute left-0 -translate-x-[50%]">
+                        <FourIcon color="#C7CEE8" />
+                    </div>
+                    <div className="size-[20px] absolute left-0 translate-x-[50%] -translate-y-[50%]">
+                        <FourIcon color="#C7CEE8" />
+                    </div>
+                    <div className="size-[32px] absolute left-0 top-0 -translate-x-[50%] -translate-y-[50%]">
+                        <FourIcon color="#524CF2" />
+                    </div>
                     <div className="rtl">
                         <p className="text-xs font-bold">علیرضا علوی</p>
                         <p className="text-xs font-bold">Alireza Alavi</p>
