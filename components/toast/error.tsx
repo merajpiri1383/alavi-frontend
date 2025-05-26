@@ -4,7 +4,7 @@ interface Props {
     message ?: string
 }
 
-const ToastError : FC<Props> = ({ message }: any) => {
+const ToastError : FC<Props> = ({ message }) => {
     return (
         <div className="rtl w-full">
             <p className="text-[#FF3549] font-[500] text-[15px]">خطایی رخ داد!</p>

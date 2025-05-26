@@ -59,7 +59,6 @@ interface ItemProps {
 }
 
 const Item: FC<ItemProps> = ({ index }) => {
-    console.log(index % 2 === 0)
     return (
         <div className={`grid grid-cols-10 gap-2 group ${index % 2 === 0 && "md:[direction:ltr]"}
             md:flex justify-between`}>

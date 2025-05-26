@@ -4,7 +4,7 @@ interface Props {
     message ?: string
 }
 
-const ToastSuccess : FC<Props> = ({ message }: any) => {
+const ToastSuccess : FC<Props> = ({ message }) => {
     return (
         <div className="rtl w-full">
             <p className="text-[#1E8E29] font-[500] text-[15px]">ارسال پیام موفقیت آمیز</p>
