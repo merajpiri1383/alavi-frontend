@@ -16,10 +16,10 @@ interface WorkWithMeType {
 
 const Item: FC<WorkWithMeType> = ({ active_icon, icon, text, title }) => {
     return (
-        <div className="p-4 rounded-[16px] group hover:shadow-xl my-6 cursor-pointer transition duration-400
-            min-w-64">
+        <div className="p-4 rounded-[16px] group my-6 cursor-pointer transition duration-400
+            min-w-64 hover:shadow-[0_0_20px_rgba(0,0,0,0.2)]">
             <div className="size-[45px] border-[1.5px] border-[#E1E1E1] flex items-center justify-center
-                rounded-[10px] group-hover:bg-[#524CF2] transition duration-400">
+                rounded-[10px] group-hover:bg-[#524CF2] transition duration-400 group-hover:border-none">
                 <div className="size-[25px] group-hover:hidden">{icon}</div>
                 <div className="size-[25px] group-hover:block hidden">{active_icon}</div>
             </div>
@@ -77,7 +77,8 @@ const WorkWithMe = () => {
                 </div>
             </div>
 
-            <div className="flex z-5 overflow-x-scroll no-scrollbar py-12 md:py-0 md:grid md:grid-cols-4 gap-4">
+            <div className="flex z-5 overflow-x-scroll no-scrollbar py-12 md:py-0 md:grid md:grid-cols-4 gap-4
+                px-5">
                 {
                     data.map((item, index) => {
                         return (

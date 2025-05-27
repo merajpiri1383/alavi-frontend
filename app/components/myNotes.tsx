@@ -7,13 +7,12 @@ import "swiper/css";
 import "swiper/css/navigation";
 import { Navigation, Pagination } from "swiper/modules";
 import NotesIcon from "@/components/icons/home/notes";
+import ArrowLeftIcon from "@/components/icons/home/arrowLeft";
 import Note1 from "@/public/images/note1.svg";
 import Note2 from "@/public/images/note2.svg";
 import Note3 from "@/public/images/note3.svg";
 import Note4 from "@/public/images/note4.svg";
 import Note5 from "@/public/images/note5.svg";
-import Note6 from "@/public/images/note6.svg";
-import Note7 from "@/public/images/note7.svg";
 
 
 interface NoteProps {
@@ -24,8 +23,9 @@ interface NoteProps {
 
 const Note: FC<NoteProps> = ({ image, date, title }) => {
     return (
-        <div className="col-span-1 flex items-center justify-start gap-2 my-4 md:my-0" id="my_notes">
-            <div className="size-[60px] md:size-[75px] relative">
+        <div className="col-span-1 flex items-center 
+            justify-start  gap-2 my-4 md:my-0 gap-2" id="my_notes">
+            <div className="size-[60px] flex-none md:size-[75px] relative">
                 <Image
                     src={image}
                     alt={title}
@@ -36,9 +36,11 @@ const Note: FC<NoteProps> = ({ image, date, title }) => {
                 />
             </div>
 
-            <div className="flex-col flex items-start justify-start h-full gap-1">
-                <p className="text-[11px] md:text-[14px] font-[700] text-[#0D0E11]">{title}</p>
-                <p className="text-[#8B8B9A] text-[11px] md:text-[14px] font-[400]">{date}</p>
+            <div className="flex-col flex items-start justify-start gap-1 overflow-x-hidden">
+                <p className="text-[11px] md:text-[14px] font-[700] text-[#0D0E11]
+                h-5 overflow-hidden">{title}</p>
+                <p className="text-[#8B8B9A] text-[11px] md:text-[14px] font-[400]
+                h-5 overflow-hidden">{date}</p>
                 <p className="text-[#8B8B9A] text-[11px] md:text-[14px] font-[400]">مطالعه بیشتر</p>
             </div>
 
@@ -55,14 +57,24 @@ const ImageSlide: FC<NoteProps> = ({ image, date, title }) => {
                     alt="image"
                     fill={true}
                     sizes="100%"
-                    className=" object-cover rounded-[16px]"
+                    className="object-cover rounded-[16px]"
                 />
             </div>
-            <div className="group-hover:bg-black absolute top-0 left-0 right-0 bottom-0 opacity-40 
-            rounded-[16px] transition"></div>
+            <div className="bg-black absolute top-0 left-0 right-0 bottom-0 opacity-0 
+            rounded-[16px] transition group-hover:opacity-40 duration-400"></div>
             <div className="absolute top-0 bottom-0 left-0 right-0 flex-col flex justify-end p-3">
-                <p className="text-[#FFFFFF] text-[14px] md:text-[16px] font-[700]">{title}</p>
-                <p className="text-[#FFFFFF]  text-[12px] md:text-[14px] font-[600]">{date}</p>
+                <p className="text-[#FFFFFF] text-[14px] md:text-[16px] font-[700]
+                translate-y-[100%] group-hover:translate-y-[0%] transition duration-400">{title}</p>
+                <p className="text-[#FFFFFF] my-1 text-[12px] md:text-[14px] font-[600]
+                translate-y-[100%] group-hover:translate-y-[0%] transition duration-400">{date}</p>
+                <div className="flex items-center justify-start gap-2 translate-y-[100%] opacity-0
+                    group-hover:translate-y-[0%] transition group-hover:opacity-100 duration-400 
+                    group-hover:mt-3">
+                    <p className="text-[#FFFFFF] text-[14px] font-[600]">مطالعه بیشتر</p>
+                    <div className="h-[16px] w-[19px]">
+                        <ArrowLeftIcon color="white"  />
+                    </div>
+                </div>
             </div>
         </>
     )
@@ -71,7 +83,7 @@ const ImageSlide: FC<NoteProps> = ({ image, date, title }) => {
 
 const MyNotes: FC = () => {
 
-    const data = [
+    const data : NoteProps[] = [
         {
             image: Note1,
             title: "نکات برنامه نویسی پایتون حرفه ای حین کد زدن",
@@ -92,15 +104,7 @@ const MyNotes: FC = () => {
             image: Note5,
             title: "آیا پایتون بهترین زبان برای شروع برنامه نویسی است؟",
             date: "31 شهریور ماه 1403"
-        }, {
-            image: Note6,
-            title: "آیا پایتون بهترین زبان برای شروع برنامه نویسی است؟",
-            date: "31 شهریور ماه 1403"
-        }, {
-            image: Note7,
-            title: "آیا پایتون بهترین زبان برای شروع برنامه نویسی است؟",
-            date: "31 شهریور ماه 1403"
-        },
+        }
     ]
 
     const chunkedData = [];
@@ -126,13 +130,13 @@ const MyNotes: FC = () => {
                 </div>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <div className="col-span-1 hidden md:block">
+                <div className="col-span-1 hidden md:block h-[450px]">
                     <Swiper
                         slidesPerView={2}
                         spaceBetween={30}
                         direction="vertical"
                         modules={[Navigation]}
-                        className="h-[500px]"
+                        className="h-full"
                     >
                         {
                             data.map((item, index) => {
@@ -151,7 +155,7 @@ const MyNotes: FC = () => {
                     </Swiper>
                 </div>
 
-                <div className="col-span-1 h-[250px] md:h-[500px] relative">
+                <div className="col-span-1 h-[250px] md:h-[450px] relative">
                     <Swiper
                         modules={[Navigation, Pagination]}
                         slidesPerView={1}
@@ -166,7 +170,7 @@ const MyNotes: FC = () => {
                         }}
                     >
                         {data.map((item, idx) => (
-                            <SwiperSlide key={idx}>
+                            <SwiperSlide key={idx} className="relative cursor-pointer group">
                                 <ImageSlide
                                     date={item.date}
                                     image={item.image}
@@ -181,7 +185,7 @@ const MyNotes: FC = () => {
                         space-y-2 z-10"/>
                 </div>
 
-                <div className="col-span-1 md:grid grid-cols-1 h-[500px] overflow-y-scroll no-scrollbar gap-4
+                <div className="col-span-1 md:grid grid-cols-1 h-[450px] overflow-y-scroll no-scrollbar
                     hidden">
                     {
                         data.map((item, index) => {

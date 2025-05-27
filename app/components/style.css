@@ -1,0 +1,10 @@
+
+.experience-show {
+    height: var(--show-height);
+    transition: 1s;
+}
+
+.experience-hide {
+    height: 540px;
+    transition: 1s;
+}

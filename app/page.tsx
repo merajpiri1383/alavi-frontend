@@ -1,4 +1,5 @@
 import dynamic from "next/dynamic"
+import "@/app/components/style.css";
 const Introduction = dynamic(() => import("@/app/components/introduction"), { ssr: true });
 const WorkFields = dynamic(() => import("@/app/components/workFields"), { ssr: true });
 const AboutMe = dynamic(() => import("@/app/components/aboutMe"), { ssr: true });

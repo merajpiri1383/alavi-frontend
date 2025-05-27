@@ -31,7 +31,7 @@ const Project: FC<ProjectType> = (props) => {
     const technologies = [1, 2, 3, 4, 5, 6, 7]
 
     return (
-        <article className="grid grid-cols-1 md:grid-cols-7 select-none">
+        <article className="grid grid-cols-1 md:grid-cols-7 select-none items-stretch">
             <div className="col-span-1 md:col-span-5">
                 <div className="flex items-center justify-start gap-4">
                     <div className="size-14 md:size-16 bg-[#F3F3F3] flex 
@@ -62,7 +62,7 @@ const Project: FC<ProjectType> = (props) => {
                     با تولید سادگی نامفهوم از صنعت چاپ است نامفهوم از صنعت چاپ و با استفاده میباشد.</p>
             </div>
 
-            <div className="w-full min-h-52 md:h-full my-4 md:my-0  relative col-span-1 md:col-span-2">
+            <div className="w-full my-4 md:my-0  relative col-span-1 md:col-span-2">
                 <Image
                     src={HotelImage}
                     alt="hotel image"
@@ -78,8 +78,9 @@ const Project: FC<ProjectType> = (props) => {
                 نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. لورم ایپسوم متن ساختگی
                 با تولید سادگی نامفهوم از صنعت چاپ است نامفهوم از صنعت چاپ و با استفاده میباشد.</p>
 
-            <div className="my-4 col-span-1 md:col-span-7 md:flex md:my-6 gap-4">
-                <p className="text-xs text-[#2B2B2B] font-[600] my-2 w-60 md:text-sm">تکنولوژی وبسایت :</p>
+            <div className="my-4 col-span-1 md:col-span-7 md:flex md:my-6 gap-2">
+                <p className="text-xs text-[#2B2B2B] font-[600] my-2 w-60 md:text-sm mx-auto
+                text-center">تکنولوژی وبسایت :</p>
                 <div className="hidden md:flex w-fit p-2 bg-[#F2F2F2] rounded-[5px] items-center 
                     justify-center hover:bg-[#E4E4E4] transition duration-200 cursor-pointer active:scale-95">
                     <div className="size-5">
