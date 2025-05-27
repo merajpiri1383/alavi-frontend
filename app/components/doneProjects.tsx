@@ -11,19 +11,21 @@ const Project = dynamic(() => import("@/app/components/project"), { ssr: true })
 
 const Projects: FC<ProjectsProps> = ({ projects }) => {
 
-    const [showScrollbar,setShowScrollbar] = useState<true | false>(false);
+    const [showScrollbar, setShowScrollbar] = useState<true | false>(false);
 
-    let timeout : any;
+    let timeout: ReturnType<typeof setTimeout>;
 
-    const ScorllShowHandler = () => {
+    const ScrollShowHandler = () => {
         setShowScrollbar(true);
-        timeout && clearTimeout(timeout);
-        timeout = setTimeout(() => setShowScrollbar(false) ,500)
+        if (timeout) {
+            clearTimeout(timeout);
+        }
+        timeout = setTimeout(() => setShowScrollbar(false), 500);
     };
 
     return (
         <div
-            onScroll={ScorllShowHandler}
+            onScroll={ScrollShowHandler}
             className={`md:grid flex md:grid-cols-1 gap-4 h-80 ${!showScrollbar && "no-scrollbar"}
             md:overflow-y-scroll overflow-hidden [direction:ltr]`}>
             {

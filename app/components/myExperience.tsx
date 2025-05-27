@@ -7,7 +7,7 @@ import BrowserIcon from "@/components/icons/home/browser";
 import ZaravanIcon from "@/public/images/zaravan.svg";
 import ArrowDownIcon2 from "@/components/icons/home/arrowDown2";
 import { FC, memo, useState } from "react";
-import { Slide, Zoom } from "react-awesome-reveal";
+import { Zoom } from "react-awesome-reveal";
 
 
 
