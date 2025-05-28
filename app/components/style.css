@@ -1,4 +1,3 @@
-
 .experience-show {
     height: var(--show-height);
     transition: 1s;
@@ -7,4 +6,55 @@
 .experience-hide {
     height: 540px;
     transition: 1s;
+}
+
+@keyframes AboutMeOpen {
+    from {
+        height: 680px;
+    }
+
+    to {
+        height: 800px;
+    }
+}
+
+.aboutme-open {
+    animation: AboutMeOpen 700ms both;
+}
+
+@keyframes AboutMeClose {
+    from {
+        height: 800px;
+    }
+
+    to {
+        height: 680px;
+    }
+}
+
+@media only screen and (max-width :768px) {
+
+    @keyframes AboutMeOpen {
+        from {
+            height: 400px;
+        }
+
+        to {
+            height: 800px;
+        }
+    }
+
+    @keyframes AboutMeClose {
+        from {
+            height: 800px;
+        }
+
+        to {
+            height: 400px;
+        }
+    }
+}
+
+.aboutme-close {
+    animation: AboutMeClose 700ms both;
 }

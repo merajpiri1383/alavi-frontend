@@ -7,18 +7,23 @@ import GitIcon from "@/components/icons/home/git";
 import { Slide } from "react-awesome-reveal";
 import { memo } from "react";
 import Icon2 from "@/icons/home/halfCicle2";
+import ArrowLeftIcon from "@/components/icons/home/arrowLeft";
 
 
 const ProjectBox = memo(() => {
     return (
-        <div className="col-span-1 relative self-end relative">
-            <Slide
-                direction="up"
-                duration={1500}
-                triggerOnce
-                className="h-32 w-full rounded-br-3xl bg-[#E2E2FF] ">
-                    <Icon2 className={"absolute top-0"} />
-            </Slide>
+        <div className="h-32 w-full rounded-br-3xl bg-[#E2E2FF] relative">
+
+            <Icon2 className="absolute top-0 " />
+            <div className="absolute top-0 left-0 p-2">
+                <div className="size-[21px]">
+                    <ArrowLeftIcon color="#524CF2" />
+                </div>
+            </div>
+            <div className="absolute bottom-0 p-2 py-4 text-[#2B2B2B] text-[13px] font-[700]">
+                <p>پروژه های متنوع با کیفیت، بهترین</p>
+                <p>بیش از ۱۲ سال سابقه کار!</p>
+            </div>
         </div>
     )
 });
@@ -85,7 +90,9 @@ const IntroductionImages = () => {
                     <SeniorBox />
                 </div>
 
-                <ProjectBox />
+                <Slide className="col-span-1 self-end" triggerOnce direction="up">
+                    <ProjectBox />
+                </Slide>
             </div>
             <div className="col-span-1 grid grid-cols-1 gap-4 h-full">
                 <Slide duration={1500} className="col-span-1 self-start" direction="left" triggerOnce>

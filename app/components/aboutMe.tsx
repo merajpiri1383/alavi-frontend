@@ -94,9 +94,14 @@ const Box: FC<BoxType> = ({ title, data }) => {
     )
 }
 
-const Story = () => {
+
+interface StoryProps {
+    open: boolean,
+}
+
+const Story: FC<StoryProps> = ({ open }) => {
     return (
-        <div className="rtl my-6">
+        <div className={`rtl my-6 ${open ? "" : ""}`}>
             <p className="text-sm font-semibold md:text-xl text-[#2B2B2B]">داستان کوتاه من</p>
             <p className="text-xs text-[#727379] leading-6 my-3 text-justify">لورم ایپسوم متن ساختگی
                 با تولید سادگی نامفهوم از صنعت چاپ، و با اینکه آن استفاده از طراحان گرافیک است
@@ -121,7 +126,7 @@ const Story = () => {
                 و متون جذاب از آنها برای آزمایشی بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است.</p>
         </div>
     )
-};
+}
 
 const AboutMe: FC = () => {
 
@@ -167,16 +172,21 @@ const AboutMe: FC = () => {
     ]
 
     return (
-        <div className="grid grid-cols-1 md:grid-cols-3 select-none">
-            <Slide duration={300} triggerOnce direction="up">
+        <div className={`grid grid-cols-1 md:grid-cols-3 select-none`}>
+            <Slide
+                duration={300}
+                triggerOnce
+                direction="up"
+                className="h-fit">
                 <AboutMeImage />
             </Slide>
-            <div className={`col-span-1 md:col-span-2 px-6 md:px-20 no-scrollbar
-                ${!open && "h-[85vh] overflow-y-scroll"}`}>
+            <div
+                className={`col-span-1 md:col-span-2 px-6 md:pl-20 md:mr-10 md:pr-10
+                ${open ? "aboutme-open" : "aboutme-close"} overflow-y-scroll`}>
                 <Box title="تفریحات من" data={hobbies} />
                 <Box title="نویسنده مورد علاقم" data={writers} />
                 <Box title="علایق من" data={favorites} />
-                <Story />
+                <Story open={open} />
             </div>
             <div className="col-span-1"></div>
             <div
