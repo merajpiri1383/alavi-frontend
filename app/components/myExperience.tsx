@@ -7,7 +7,7 @@ import BrowserIcon from "@/components/icons/home/browser";
 import ZaravanIcon from "@/public/images/zaravan.svg";
 import ArrowDownIcon2 from "@/components/icons/home/arrowDown2";
 import { FC, memo, useState } from "react";
-import { Zoom } from "react-awesome-reveal";
+import { Slide, Zoom } from "react-awesome-reveal";
 
 
 
@@ -16,7 +16,7 @@ const Experience = () => {
     const [showLink, setShowlink] = useState(false);
 
     return (
-        <article className="">
+        <Slide direction="up" duration={400} triggerOnce>
             <div className="flex items-center justify-start gap-4">
                 <div className="size-[55px] bg-[#F3F3F3] rounded-[8px] flex items-center justify-center">
                     <div className="size-[33px] relative">
@@ -59,7 +59,7 @@ const Experience = () => {
                     }
                 </div>
             </div>
-        </article>
+        </Slide>
     )
 };
 

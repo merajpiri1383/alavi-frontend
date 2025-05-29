@@ -1,4 +1,5 @@
 import { FC, memo } from "react";
+import { Slide } from "react-awesome-reveal";
 import DocumentIcon from "@/components/icons/home/document";
 import NetIcon from "@/components/icons/home/net";
 import DocumentCode from "@/components/icons/home/documentCode";
@@ -8,13 +9,13 @@ import BoxIcon from "@/components/icons/home/box";
 
 
 interface ItemProps {
-    icon : React.ReactNode,
-    active_icon : React.ReactNode,
-    title : string,
-    text : string,
+    icon: React.ReactNode,
+    active_icon: React.ReactNode,
+    title: string,
+    text: string,
 }
- 
-const Item : FC<ItemProps> = ({active_icon,icon,text,title }) => {
+
+const Item: FC<ItemProps> = ({ active_icon, icon, text, title }) => {
     return (
         <article className="relative py-2 md:py-6 group cursor-pointer col-span-1
             transition duration-400 border-[2px] border-[#E1E1E1] hover:border-[#4B5BCE] 
@@ -47,17 +48,17 @@ const WorkFields = () => {
             active_icon: <DocumentCode color={"#524CF2"} />,
             title: "برنامه نویسی اختصاصی",
             text: "Dedicated programming",
-        },{
+        }, {
             icon: <DriverIcon color={"#2B2B2B"} />,
             active_icon: <DriverIcon color={"#524CF2"} />,
             title: "خدمات سرور و شبکه",
             text: "Server & Networking",
-        },{
+        }, {
             icon: <FireIcon color={"#2B2B2B"} />,
             active_icon: <FireIcon color={"#524CF2"} />,
             title: "توسعه هوش مصنوعی",
             text: "Development of AI",
-        },{
+        }, {
             icon: <BoxIcon color={"#2B2B2B"} />,
             active_icon: <BoxIcon color={"#524CF2"} />,
             title: "ماشین لرنینگ",
@@ -79,22 +80,24 @@ const WorkFields = () => {
                 </div>
             </div>
 
-            <div className="py-6 flex items-center overflow-x-scroll md:grid grid-cols-5 gap-6
-                no-scrollbar">
-                {
-                    items.map((item, index) => {
-                        return (
-                            <Item 
-                                key={index}
-                                active_icon={item.active_icon}
-                                icon={item.icon}
-                                text={item.text}
-                                title={item.title}
-                            />
-                        )
-                    })
-                }
-            </div>
+            <Slide direction="up" duration={200} triggerOnce>
+                <div className="py-6 flex items-center overflow-x-scroll md:grid grid-cols-5 gap-6
+                    no-scrollbar">
+                    {
+                        items.map((item, index) => {
+                            return (
+                                <Item
+                                    key={index}
+                                    active_icon={item.active_icon}
+                                    icon={item.icon}
+                                    text={item.text}
+                                    title={item.title}
+                                />
+                            )
+                        })
+                    }
+                </div>
+            </Slide>
         </div>
     )
 }; export default memo(WorkFields);

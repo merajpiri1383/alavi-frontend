@@ -4,6 +4,7 @@ import MessageTickIcon from "@/components/icons/home/messageTick";
 import SendIcon from "@/components/icons/home/send";
 import NoteIcon from "@/components/icons/home/note";
 import StoryIcon from "@/components/icons/home/story";
+import { Slide } from "react-awesome-reveal";
 
 
 interface WorkWithMeType {
@@ -16,7 +17,8 @@ interface WorkWithMeType {
 
 const Item: FC<WorkWithMeType> = ({ active_icon, icon, text, title }) => {
     return (
-        <div className="p-4 rounded-[16px] group my-6 cursor-pointer transition duration-400
+        <Slide duration={400} direction="up" triggerOnce>
+            <div className="p-4 rounded-[16px] group my-6 cursor-pointer transition duration-400
             min-w-64 hover:shadow-[0_0_20px_rgba(0,0,0,0.2)]">
             <div className="size-[45px] border-[1.5px] border-[#E1E1E1] flex items-center justify-center
                 rounded-[10px] group-hover:bg-[#524CF2] transition duration-400 group-hover:border-none">
@@ -30,6 +32,7 @@ const Item: FC<WorkWithMeType> = ({ active_icon, icon, text, title }) => {
             rounded-[8px] w-fit p-3 my-3 cursor-pointer group-hover:bg-[#292D32]
             transition duration-400 text-[#3D3D3D]">درخواست فرم</div>
         </div>
+        </Slide>
     )
 };
 

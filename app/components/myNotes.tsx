@@ -13,6 +13,7 @@ import Note2 from "@/public/images/note2.svg";
 import Note3 from "@/public/images/note3.svg";
 import Note4 from "@/public/images/note4.svg";
 import Note5 from "@/public/images/note5.svg";
+import { Slide } from "react-awesome-reveal";
 
 
 interface NoteProps {
@@ -72,7 +73,7 @@ const ImageSlide: FC<NoteProps> = ({ image, date, title }) => {
                     group-hover:mt-3">
                     <p className="text-[#FFFFFF] text-[14px] font-[600]">مطالعه بیشتر</p>
                     <div className="h-[16px] w-[19px]">
-                        <ArrowLeftIcon color="white"  />
+                        <ArrowLeftIcon color="white" />
                     </div>
                 </div>
             </div>
@@ -83,7 +84,7 @@ const ImageSlide: FC<NoteProps> = ({ image, date, title }) => {
 
 const MyNotes: FC = () => {
 
-    const data : NoteProps[] = [
+    const data: NoteProps[] = [
         {
             image: Note1,
             title: "نکات برنامه نویسی پایتون حرفه ای حین کد زدن",
@@ -130,7 +131,10 @@ const MyNotes: FC = () => {
                 </div>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <div className="col-span-1 hidden md:block h-[450px]">
+                <Slide direction="right"
+                    duration={400}
+                    triggerOnce
+                    className="col-span-1 hidden md:block h-[450px]">
                     <Swiper
                         slidesPerView={2}
                         spaceBetween={30}
@@ -153,7 +157,7 @@ const MyNotes: FC = () => {
                             })
                         }
                     </Swiper>
-                </div>
+                </Slide>
 
                 <div className="col-span-1 h-[250px] md:h-[450px] relative">
                     <Swiper
@@ -185,21 +189,23 @@ const MyNotes: FC = () => {
                         space-y-2 z-10"/>
                 </div>
 
-                <div className="col-span-1 md:grid grid-cols-1 h-[450px] overflow-y-scroll no-scrollbar
+                <Slide duration={400} triggerOnce>
+                    <div className="col-span-1 md:grid grid-cols-1 h-[450px] overflow-y-scroll no-scrollbar
                     hidden">
-                    {
-                        data.map((item, index) => {
-                            return (
-                                <Note
-                                    key={index}
-                                    date={item.date}
-                                    image={item.image}
-                                    title={item.title}
-                                />
-                            )
-                        })
-                    }
-                </div>
+                        {
+                            data.map((item, index) => {
+                                return (
+                                    <Note
+                                        key={index}
+                                        date={item.date}
+                                        image={item.image}
+                                        title={item.title}
+                                    />
+                                )
+                            })
+                        }
+                    </div>
+                </Slide>
 
                 <div className="md:hidden">
                     <Swiper

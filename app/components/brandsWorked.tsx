@@ -1,5 +1,6 @@
 import { FC, memo } from "react";
 import Image, { StaticImageData } from "next/image";
+import { Slide } from "react-awesome-reveal";
 import CroneIcon from "@/components/icons/home/crown";
 import Logo1 from "@/public/images/Logo01 1.svg";
 import Logo2 from "@/public/images/novin 1.svg";
@@ -53,14 +54,16 @@ const BrandsWorked = () => {
                 </div>
             </div>
 
-            <div className="flex z-5 overflow-x-scroll no-scrollbar  md:py-0 md:grid 
+            <Slide className="relative z-[4]" direction="up" duration={200} triggerOnce>
+                <div className="flex z-5 overflow-x-scroll no-scrollbar  md:py-0 md:grid 
                 md:grid-cols-6 relative md:gap-4">
-                {
-                    images.map((item, index) => {
-                        return <Item image={item} key={index} />
-                    })
-                }
-            </div>
+                    {
+                        images.map((item, index) => {
+                            return <Item image={item} key={index} />
+                        })
+                    }
+                </div>
+            </Slide>
 
             <div
                 style={{ boxShadow: "0px 0px 100px 30px #AAB3F1" }}

@@ -5,6 +5,7 @@ import VerifyIcon from "@/components/icons/home/verify";
 
 import { ProjectType, ProjectsProps } from "@/app/components/types";
 import dynamic from "next/dynamic";
+import { Slide } from "react-awesome-reveal";
 const Project = dynamic(() => import("@/app/components/project"), { ssr: true })
 
 
@@ -24,27 +25,29 @@ const Projects: FC<ProjectsProps> = ({ projects }) => {
     };
 
     return (
-        <div
-            onScroll={ScrollShowHandler}
-            className={`md:grid flex md:grid-cols-1 gap-4 h-80 ${!showScrollbar && "no-scrollbar"}
+        <Slide direction="right" duration={300} triggerOnce>
+            <div
+                onScroll={ScrollShowHandler}
+                className={`md:grid flex md:grid-cols-1 gap-4 h-80 ${!showScrollbar && "no-scrollbar"}
             md:overflow-y-scroll overflow-hidden [direction:ltr]`}>
-            {
-                projects.map((project, index) => {
-                    return (
-                        <div key={index} className="border group md:mb-10 border-[#E1E1E1] p-3 md:col-span-1
+                {
+                    projects.map((project, index) => {
+                        return (
+                            <div key={index} className="border group md:mb-10 border-[#E1E1E1] p-3 md:col-span-1
                             rounded-xl hover:bg-[#292D32] transition duration-[400ms] cursor-pointer
                             min-w-48 h-fit overflow-hidden rtl md:mr-4">
-                            <p className="text-sm text-[#2F2F2F] group-hover:text-[#FFFFFF] 
+                                <p className="text-sm text-[#2F2F2F] group-hover:text-[#FFFFFF] 
                                 transition duration-[300ms]">
-                                {project.title}
-                            </p>
-                            <p className="text-xs mt-2 min-w-36 text-[#8B8B9A] hover-group:text-[#AAAAB5]
+                                    {project.title}
+                                </p>
+                                <p className="text-xs mt-2 min-w-36 text-[#8B8B9A] hover-group:text-[#AAAAB5]
                             h-4 overflow-hidden">{project.text}</p>
-                        </div>
-                    )
-                })
-            }
-        </div>
+                            </div>
+                        )
+                    })
+                }
+            </div>
+        </Slide>
     )
 };
 

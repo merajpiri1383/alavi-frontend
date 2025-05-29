@@ -4,6 +4,7 @@ import MobileIcon from "@/components/icons/home/mobile";
 import Image2 from "@/public/images/bg1.svg";
 import Image3 from "@/public/images/avatar.svg";
 import LinkIcon from "@/components/icons/home/link";
+import { Slide } from "react-awesome-reveal";
 
 interface SocialProps {
     name: string
@@ -96,10 +97,9 @@ const Socials = () => {
                 {
                     items.map((item, index) => {
                         return (
-                            <Social
-                                key={index}
-                                name={item}
-                            />
+                            <Slide key={index} duration={400} direction="up" triggerOnce>
+                                <Social name={item} />
+                            </Slide>
                         )
                     })
                 }
