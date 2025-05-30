@@ -85,6 +85,7 @@ const Form = () => {
                         <textarea className="bg-[#E8E8E8] rounded-[8px] p-3 text-[12px]
                         font-[600] text-[#878787] h-48 md:h-full w-full outline-none"
                         placeholder="* محتوا مورد نظر خود را وارد نمایید..."
+                        style={{resize : "none"}}
                         onChange={(e) => setText(e.target.value)}
                         ></textarea>
                     </div>

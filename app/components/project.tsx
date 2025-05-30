@@ -1,4 +1,4 @@
-import { FC, memo } from "react";
+import { FC, forwardRef, memo, useRef } from "react";
 import { ProjectType } from "@/app/components/types";
 import HotelImage from "@/public/images/hotel.svg";
 import ZaravanImage from "@/public/images/zaravan.svg";
@@ -8,9 +8,9 @@ import ArrowLeft2Icon from "@/components/icons/home/arrowLeft2";
 import ArrowRightIcon from "@/components/icons/home/arrowRight";
 
 
-const ProjectTechnology = () => {
+const ProjectTechnology = forwardRef<HTMLDivElement>(({} , ref) => {
     return (
-        <div className="flex items-center justify-start gap-3 min-w-48">
+        <div className="flex items-center justify-start gap-3 min-w-48" ref={ref}>
             <div className="size-12 border border-[#E7E7E7] rounded-[8px] flex items-center justify-center">
                 <div className="size-6">
                     <PythonIcon />
@@ -22,13 +22,24 @@ const ProjectTechnology = () => {
             </div>
         </div>
     )
-}
+});
 
-const Project: FC<ProjectType> = (props) => {
+ProjectTechnology.displayName = "ProjectTechnology"
 
-    console.log(props)
+const Project: FC<ProjectType> = () => {
 
-    const technologies = [1, 2, 3, 4, 5, 6, 7]
+    const technologies = [1, 2, 3, 4, 5, 6, 7,8,9];
+    const scrollRef = useRef<HTMLDivElement>(null);
+    const itemRef = useRef<HTMLDivElement>(null);
+
+    const scrollHandler = (offset : number) => {
+        scrollRef.current?.scrollBy({
+            behavior : "smooth",
+            left : offset > 0 ? 
+            itemRef.current?.getBoundingClientRect().width : 
+            -(itemRef.current?.getBoundingClientRect().width as number)
+        })
+    };
 
     return (
         <article className="grid grid-cols-1 md:grid-cols-7 select-none items-stretch">
@@ -78,26 +89,33 @@ const Project: FC<ProjectType> = (props) => {
                 نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. لورم ایپسوم متن ساختگی
                 با تولید سادگی نامفهوم از صنعت چاپ است نامفهوم از صنعت چاپ و با استفاده میباشد.</p>
 
-            <div className="my-4 col-span-1 md:col-span-7 md:flex md:my-6 gap-2">
-                <p className="text-xs text-[#2B2B2B] font-[600] my-2 w-60 md:text-sm mx-auto
+            <div className="my-4 col-span-1 md:col-span-7 md:flex items-center md:my-6 gap-2">
+                <p className="text-xs text-[#2B2B2B] font-[600] my-2 w-80 md:text-sm mx-auto
                 text-center">تکنولوژی وبسایت :</p>
                 <div className="hidden md:flex w-fit p-2 bg-[#F2F2F2] rounded-[5px] items-center 
-                    justify-center hover:bg-[#E4E4E4] transition duration-200 cursor-pointer active:scale-95">
+                    justify-center hover:bg-[#E4E4E4] transition duration-200 
+                    cursor-pointer active:scale-95 h-full" onClick={() => scrollHandler(200)}>
                     <div className="size-5">
                         <ArrowRightIcon />
                     </div>
                 </div>
-                <div className="flex items-center justify-start gap-4 overflow-x-scroll no-scrollbar">
+                <div
+                    ref={scrollRef}
+                    className="flex items-center justify-start gap-4 overflow-x-scroll no-scrollbar">
                     {
                         technologies.map((technology, index) => {
                             return (
-                                <ProjectTechnology key={index} />
+                                <ProjectTechnology 
+                                    key={index} 
+                                    ref={itemRef}
+                                />
                             )
                         })
                     }
                 </div>
                 <div className="hidden md:flex w-fit p-2 bg-[#F2F2F2] rounded-[5px] items-center 
-                    justify-center hover:bg-[#E4E4E4] transition duration-200 cursor-pointer active:scale-95">
+                    justify-center hover:bg-[#E4E4E4] transition duration-200 
+                    cursor-pointer active:scale-95 h-full" onClick={() => scrollHandler(-200)}>
                     <div className="size-5">
                         <ArrowLeft2Icon />
                     </div>

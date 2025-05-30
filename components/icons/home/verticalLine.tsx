@@ -15,7 +15,7 @@ const VerticalLineIcon: FC<Props> = ({ color = "#A5A5A5",hoverColor="#524CF2" })
             fill="none" 
             xmlns="http://www.w3.org/2000/svg">
             <path d="M1 1L1.00001 208" 
-            className="[stroke:var(--color)] group-hover:[stroke:var(--hover-color)] transition duration-400" 
+            className="[stroke:var(--color)] group-hover:[stroke:var(--hover-color)] transition duration-600" 
             strokeWidth="2" 
             strokeLinecap="round" 
             strokeDasharray="12 12" />

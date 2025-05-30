@@ -25,7 +25,7 @@ const Item: FC<ItemType> = ({ title, text }) => {
 
 const AboutMeImage = () => {
     return (
-        <div className="bg-[#F6F6F6] col-span-1 h-fit mr-8 py-12 rounded-tr-3xl rounded-br-[6rem] relative">
+        <div className="bg-[#F6F6F6] col-span-1 h-fit mr-8 py-3 rounded-tr-3xl rounded-br-[6rem] relative">
             <div className="w-fit mx-auto my-12 relative z-[3]">
                 <div
                     style={{ backgroundImage: "linear-gradient(to bottom , #8792E3,#BBC2F2,#C9CEEE)" }}

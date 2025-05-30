@@ -10,7 +10,7 @@
 
 @keyframes AboutMeOpen {
     from {
-        height: 680px;
+        height: 550px;
     }
 
     to {
@@ -28,7 +28,7 @@
     }
 
     to {
-        height: 680px;
+        height: 550px;
     }
 }
 

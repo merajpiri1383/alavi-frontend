@@ -25,7 +25,7 @@ const EllipseIcon: FC<Props> = ({ color = "#524CF2", hoverColor }) => {
                 cx="10.5"
                 cy="10.5"
                 r="6.5"
-                className="[fill:var(--color)] group-hover:[fill:var(--hover-color)] transition duration-300"
+                className="[fill:var(--color)] group-hover:[fill:var(--hover-color)] transition duration-600"
             />
         </svg>
     );
