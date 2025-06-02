@@ -66,24 +66,23 @@ const Form = () => {
                     <div className="col-span-1 grid grid-cols-1 gap-3">
                         <div className="col-span-1">
                             <input
-                                className="bg-[#E8E8E8] rounded-[8px] p-3 text-[12px]
-                                font-[600] text-[#2F2F2F] w-full outline-none"
-                                defaultValue={"علیرضا علوی"}
-                                readOnly={true}
+                                className="bg-[#E8E8E8] rounded-[8px] p-3 text-[12px] transition duration-500
+                                font-[600] text-[#878787] focus:text-[#2F2F2F] w-full outline-none"
+                                placeholder="نام و نام خانوداگی"
                             />
                         </div>
                         <div className="col-span-1">
                             <input
-                                className="bg-[#E8E8E8] rounded-[8px] p-3 text-[12px]
-                                font-[600] text-[#878787] w-full outline-none"
+                                className="bg-[#E8E8E8] rounded-[8px] p-3 text-[12px] transition duration-500
+                                font-[600] text-[#878787] focus:text-[#2F2F2F] w-full outline-none"
                                 placeholder="* شماره همراه خود را وارد نمایید"
                                 onChange={(e) => setPhone(e.target.value)}
                             />
                         </div>
                     </div>
                     <div className="col-span-1">
-                        <textarea className="bg-[#E8E8E8] rounded-[8px] p-3 text-[12px]
-                        font-[600] text-[#878787] h-48 md:h-full w-full outline-none"
+                        <textarea className="bg-[#E8E8E8] rounded-[8px] p-3 text-[12px] transition duration-500
+                        font-[600] text-[#878787] focus:text-[#2F2F2F] h-48 md:h-full w-full outline-none"
                         placeholder="* محتوا مورد نظر خود را وارد نمایید..."
                         style={{resize : "none"}}
                         onChange={(e) => setText(e.target.value)}

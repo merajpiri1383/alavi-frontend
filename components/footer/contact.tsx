@@ -2,13 +2,19 @@ import { memo } from "react";
 import CallIcon from "@/icons/footer/call";
 import MessageIcon from "@/icons/footer/message";
 import LocationIcon from "@/icons/footer/location";
+import { toast } from "react-toastify";
 
 
 const Contact = () => {
+
+    const phoneCopyHandler = () => {
+        navigator.clipboard.writeText("+۹۸ - ۹۱۲۳۴۷۸۶۵");
+        toast.info("شماره تلفن کپی شد")
+    };
     return (
         <div className="rtl md:flex items-center justify-between my-4">
             <p className="font-[600] text-[12px] md:text-[14px]">
-                <span className="text-[#DADADA] mx-1">من همیشه در</span>
+                <span className="text-[#2B2B2B] mx-1">من همیشه در</span>
                 <span className="text-[#2B2B2B]">کنار شما دوستان عزیز هستم :)</span>
             </p>
             <div className="md:flex items-center justify-between my-2 gap-8 flex-row-reverse">
@@ -30,8 +36,10 @@ const Contact = () => {
                     <div className="size-6">
                         <CallIcon />
                     </div>
-                    <p className="text-[#2B2B2B] font-[700] text-[12px] md:text-[14px] [direction:ltr]">
-                        +۹۸ - ۹۱۲۳۴۷۸۶۵</p>
+                    <p 
+                        onClick={phoneCopyHandler}
+                        className="text-[#2B2B2B] font-[700] text-[12px] md:text-[14px] [direction:ltr]">
+                    +۹۸ - ۹۱۲۳۴۷۸۶۵</p>
                 </div>
             </div>
         </div>

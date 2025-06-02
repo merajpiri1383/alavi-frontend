@@ -21,10 +21,10 @@ const Projects = () => {
                         md:text-[14px]">پروژه های من</p>
             </div>
             <div className="rtl text-[14px] md:pr-6 font-[400] text-[#8B8B9A] leading-6 hidden md:block">
-                <p>لورم صنعت اپیسوم </p>
-                <p>لورم صنعت اپیسوم </p>
-                <p>لورم صنعت اپیسوم </p>
-                <p>لورم صنعت اپیسوم </p>
+                <p className="hover:text-[#373740] cursor-pointer transition duration-400">لورم صنعت اپیسوم </p>
+                <p className="hover:text-[#373740] cursor-pointer transition duration-400">لورم صنعت اپیسوم </p>
+                <p className="hover:text-[#373740] cursor-pointer transition duration-400">لورم صنعت اپیسوم </p>
+                <p className="hover:text-[#373740] cursor-pointer transition duration-400">لورم صنعت اپیسوم </p>
             </div>
         </>
     )

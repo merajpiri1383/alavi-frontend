@@ -4,6 +4,7 @@ import LogoIcon from "@/icons/header/logo";
 import ArrowUp from "@/icons/footer/arrowUp";
 import FourIcon from "../icons/home/four";
 import { FC } from "react";
+import Link from "next/link";
 
 interface Props {
     is_mobile : boolean
@@ -46,7 +47,7 @@ const About : FC<Props> = ({ is_mobile }) => {
                         <FourIcon color="#524CF2" />
                     </div>
                     <div className="rtl">
-                        <p className="text-xs font-bold">علیرضا علوی</p>
+                        <Link href={"/"} className="text-xs font-bold">علیرضا علوی</Link>
                         <p className="text-xs font-bold">Alireza Alavi</p>
                     </div>
                     <div className="size-10">

@@ -51,8 +51,8 @@ const Kairo = () => {
                         آینده شناخت فراوان جامعه و متخصصان را
                         می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان میباشد.</p>
 
-                    <div className="flex items-center justify-center p-3 w-fit border-[1.5px]
-                        border-[#E7E7E7] rounded-[10px] gap-2 my-6 cursor-pointer">
+                    <div className="flex items-center justify-center p-3 w-fit border-[1.5px] transition
+                        border-[#E7E7E7] rounded-[10px] gap-2 my-6 cursor-pointer hover:shadow-2xl duration-500">
                         <p className="text-[#2B2B2B] font-[600] text-[14px]">به سمت کایرو حرکت کن</p>
                         <div className="size-5">
                             <ArrowLeftIcon />
