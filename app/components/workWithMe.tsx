@@ -63,7 +63,7 @@ const WorkWithMe = () => {
     ]
 
     return (
-        <div className="bg-white rtl px-6 md:px-20 relative select-none my-12">
+        <div className="bg-white rtl px-6 md:px-20 relative my-12">
             <div className="flex items-center gap-4 justify-start mb-6">
                 <div className="bg-[#524CF21A] size-12 md:size-14 rounded-lg flex items-center justify-center">
                     <div className="size-6 md:size-8">

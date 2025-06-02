@@ -6,14 +6,16 @@ import VerticalLineIcon from "@/components/icons/home/verticalLine";
 import BrowserIcon from "@/components/icons/home/browser";
 import ZaravanIcon from "@/public/images/zaravan.svg";
 import ArrowDownIcon2 from "@/components/icons/home/arrowDown2";
-import { FC, memo, useState } from "react";
-import { Slide, Zoom } from "react-awesome-reveal";
+import { FC, memo, useRef, useState } from "react";
+import { Slide } from "react-awesome-reveal";
 
 
 
 const Experience = () => {
 
     const [showLink, setShowlink] = useState(false);
+    const linkRef = useRef<HTMLDivElement>(null);
+
 
     return (
         <Slide direction="up" duration={400} triggerOnce>
@@ -45,18 +47,21 @@ const Experience = () => {
                 rounded-[6px]">مطالعه بیشتر</div>
 
                 <div className="flex items-center justify-center bg-[#E7E7E7] rounded-[8px] p-3
-                    cursor-pointer gap-2 hover:bg-[#524CF21A]"
+                    cursor-pointer  hover:bg-[#524CF21A] transition duration-500 group/browser"
                     onMouseLeave={() => setShowlink(false)}
                     onMouseEnter={() => setShowlink(true)}>
                     <div className="size-[15px]">
                         <BrowserIcon hoverColor="#524CF2" />
                     </div>
-                    {
-                        showLink && <Zoom direction="right">
-                            <p className="text-[#524CF2] text-[12px] font-[600]">
-                                https://zarvantrip.com</p>
-                        </Zoom>
-                    }
+                    <p 
+                        ref={linkRef}
+                        style={{
+                            "--link-width" : linkRef.current?.getBoundingClientRect().width + "px"
+                        } as React.CSSProperties}
+                        className={`text-[#524CF2] text-[12px] font-[600]
+                            transition duration-500 ${showLink ? "show-link" : "hide-link"}`}>
+                            https://zarvantrip.com
+                        </p>
                 </div>
             </div>
         </Slide>
@@ -96,7 +101,7 @@ const MyExperience = () => {
     const [showMore, setShowMore] = useState<true | false>(false);
 
     return (
-        <div className="bg-white rtl my-12 px-6 md:px-20 relative select-none" id="my_experience">
+        <div className="bg-white rtl my-12 px-6 md:px-20 relative" id="my_experience">
             <div className="flex items-center gap-4 justify-start mb-10">
                 <div className="bg-[#524CF21A] size-12 md:size-14 rounded-lg flex items-center justify-center">
                     <div className="size-6 md:size-8">

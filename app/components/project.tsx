@@ -6,12 +6,14 @@ import PythonIcon from "@/components/icons/home/python";
 import Image from "next/image";
 import ArrowLeft2Icon from "@/components/icons/home/arrowLeft2";
 import ArrowRightIcon from "@/components/icons/home/arrowRight";
+import useDraggableScroll from "use-draggable-scroll";
 
 
 const ProjectTechnology = forwardRef<HTMLDivElement>(({} , ref) => {
     return (
         <div className="flex items-center justify-start gap-3 min-w-48" ref={ref}>
-            <div className="size-12 border border-[#E7E7E7] rounded-[8px] flex items-center justify-center">
+            <div className="size-12 border border-[#E7E7E7] rounded-[8px] flex 
+                items-center justify-center">
                 <div className="size-6">
                     <PythonIcon />
                 </div>
@@ -29,8 +31,10 @@ ProjectTechnology.displayName = "ProjectTechnology"
 const Project: FC<ProjectType> = () => {
 
     const technologies = [1, 2, 3, 4, 5, 6, 7,8,9];
-    const scrollRef = useRef<HTMLDivElement>(null);
+    const scrollRef = useRef<HTMLDivElement>(null!);
     const itemRef = useRef<HTMLDivElement>(null);
+
+    const { onMouseDown } = useDraggableScroll(scrollRef,{direction : "horizontal"});
 
     const scrollHandler = (offset : number) => {
         scrollRef.current?.scrollBy({
@@ -42,12 +46,12 @@ const Project: FC<ProjectType> = () => {
     };
 
     return (
-        <article className="grid grid-cols-1 md:grid-cols-7 select-none items-stretch">
+        <article className="grid grid-cols-1 md:grid-cols-7 items-stretch">
             <div className="col-span-1 md:col-span-5">
                 <div className="flex items-center justify-start gap-4">
                     <div className="size-14 md:size-16 bg-[#F3F3F3] flex 
-                            items-center justify-center rounded-xl">
-                        <div className="size-8 relative ">
+                            items-center justify-center rounded-xl cursor-pointer">
+                        <div className="size-8 relative">
                             <Image
                                 src={ZaravanImage}
                                 alt="zarvan image"
@@ -60,7 +64,8 @@ const Project: FC<ProjectType> = () => {
                         </div>
                     </div>
                     <div>
-                        <p className="text-xs font-[700] text-[#2B2B2B] md:text-sm">زروان تریپ (Zarvantrip)</p>
+                        <p className="text-xs font-[700] text-[#2B2B2B] md:text-sm cursor-pointer">
+                            زروان تریپ (Zarvantrip)</p>
                         <p className="text-xs mt-[6px] font-[400] text-[#2B2B2B] md:text-sm">
                             فروردین ۱۴۰۴ - اردیبهشت ۱۴۰۴
                         </p>
@@ -77,7 +82,7 @@ const Project: FC<ProjectType> = () => {
                 <Image
                     src={HotelImage}
                     alt="hotel image"
-                    className="rounded-[12px]"
+                    className="rounded-[12px] cursor-pointer"
                     fill={true}
                     sizes="100%"
                     style={{ objectFit: "cover", objectPosition: "center" }}
@@ -101,7 +106,9 @@ const Project: FC<ProjectType> = () => {
                 </div>
                 <div
                     ref={scrollRef}
-                    className="flex items-center justify-start gap-4 overflow-x-scroll no-scrollbar">
+                    onMouseDown={onMouseDown}
+                    className="flex items-center justify-start gap-4 overflow-x-scroll no-scrollbar
+                    cursor-move">
                     {
                         technologies.map((technology, index) => {
                             return (
@@ -122,7 +129,8 @@ const Project: FC<ProjectType> = () => {
                 </div>
             </div>
 
-            <div className="my-4 bg-[#524CF2] w-fit text-white rounded-[6px] p-3 text-xs">
+            <div className="my-4 bg-[#524CF2] w-fit text-white rounded-[6px] p-3 text-xs cursor-pointer
+                hover:bg-[#807ff0] transition duration-400">
                 مطالعه جزئیات پروژه
             </div>
         </article>

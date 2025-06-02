@@ -39,3 +39,23 @@
     transition: 300ms;
     transform: translateY(-20px);
 }
+
+.top-bottom-enter {
+    opacity: 0%;
+    transition: 600ms;
+}
+
+.top-bottom-enter-active {
+    opacity: 100%;
+    transition: 600ms;
+}
+
+.top-bottom-exit {
+    opacity: 100%;
+    transition: 600ms;
+}
+
+.top-bottom-exit-active {
+    opacity: 0%;
+    transition: 400ms;
+}

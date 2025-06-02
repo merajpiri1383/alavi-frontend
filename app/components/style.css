@@ -58,3 +58,37 @@
 .aboutme-close {
     animation: AboutMeClose 700ms both;
 }
+
+@keyframes ShowLink {
+    from {
+        width: 0px;
+        margin-right: 0px;
+    }
+
+    to {
+        width: 120px;
+        margin-right: 3px;
+    }
+}
+
+@keyframes HideLink {
+    from {
+        width : 120px;
+        margin-right: 0px;
+    }
+    
+    to {
+        width: 0px;
+        margin-right: 3px;
+    }
+}
+
+.show-link {
+    animation:ShowLink 500ms both ;
+    overflow: hidden;
+}
+
+.hide-link{
+    animation: HideLink 500ms both;
+    overflow: hidden;
+}

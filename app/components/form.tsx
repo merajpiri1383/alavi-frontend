@@ -24,7 +24,7 @@ const Form = () => {
     };
 
     return (
-        <div className="grid grid-cols-7 px-6 md:px-20 select-none">
+        <div className="grid grid-cols-7 px-6 md:px-20">
 
             <div className="col-span-7 md:col-span-3">
                 <div className="h-[265px] md:h-[340px] w-full relative">

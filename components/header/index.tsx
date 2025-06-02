@@ -6,6 +6,7 @@ import AppsIcon from "@/icons/header/apps";
 import { useDeviceType } from "@/utils/hook/deviceType";
 import { CSSTransition } from 'react-transition-group';
 import "@/components/header/style.css";
+import Link from "next/link";
 const HeaderLinks = dynamic(() => import("@/components/header/links"), { ssr: false });
 const MobilePopup = dynamic(() => import("@/components/header/MobilePopup"), { ssr: false });
 
@@ -15,8 +16,9 @@ const Header: FC = () => {
 
     const deviceType = useDeviceType();
     const [showPopup, setShowPop] = useState<true | false>(false);
-    const [showForm,setShowForm] = useState<true | false>(false);
+    const [showForm, setShowForm] = useState<true | false>(false);
     const nodeRef = useRef(null);
+    const blackScreenRef = useRef(null);
 
     const hideHandler = (): void => {
         setShowPop(false);
@@ -28,7 +30,7 @@ const Header: FC = () => {
         setShowPop(!showPopup);
     };
 
-    const FormShowHandler = (e : React.MouseEvent<HTMLDivElement>) => {
+    const FormShowHandler = (e: React.MouseEvent<HTMLDivElement>) => {
         e.stopPropagation();
         setShowForm(!showForm);
     }
@@ -52,7 +54,7 @@ const Header: FC = () => {
                     </div>
                 </div>
 
-                <div 
+                <div
                     onClick={FormShowHandler} className="p-3 px-4 hidden md:block rounded-lg bg-[#524CF2]
                     cursor-pointer">
                     <p className="text-sm text-white font-medium">فرصت های همکاری با من</p>
@@ -70,7 +72,7 @@ const Header: FC = () => {
                     deviceType === "mobile" &&
                     <CSSTransition
                         in={showPopup}
-                        timeout={300}
+                        timeout={0}
                         classNames="sidebar"
                         unmountOnExit
                         nodeRef={nodeRef}
@@ -84,7 +86,7 @@ const Header: FC = () => {
                     </CSSTransition>
                 }
 
-                <div className="flex items-center justify-between gap-4">
+                <Link href={"/"} className="flex items-center justify-between gap-4">
                     <div className="rtl">
                         <p className="text-sm font-bold">علیرضا علوی</p>
                         <p className="text-sm font-bold">Alireza Alavi</p>
@@ -92,12 +94,18 @@ const Header: FC = () => {
                     <div className="size-12">
                         <LogoIcon />
                     </div>
-                </div>
+                </Link>
             </div>
-            {
-                showPopup &&
-                <div className="fixed top-0 bottom-0 left-0 right-0 bg-[#00000080] z-10"></div>
-            }
+            <CSSTransition
+                in={showPopup}
+                timeout={600}
+                unmountOnExit
+                classNames={"top-bottom"}
+                nodeRef={blackScreenRef}
+            >
+                <div ref={blackScreenRef} className="fixed top-bottom top-0 bottom-0 left-0
+                     right-0 bg-[#00000080] z-10"></div>
+            </CSSTransition>
 
             {
                 showForm &&

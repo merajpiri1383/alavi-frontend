@@ -40,7 +40,7 @@ const Skills = () => {
     const list = [1, 2, 3, 4]
 
     return (
-        <div className="bg-white rtl my-6 px-6 md:px-20 relative select-none">
+        <div className="bg-white rtl my-6 px-6 md:px-20 relative">
             <div className="flex items-center gap-4 justify-start mb-10">
                 <div className="bg-[#524CF21A] size-12 md:size-14 rounded-lg flex items-center justify-center">
                     <div className="size-6 md:size-8">

@@ -1,47 +1,35 @@
 "use client"
-import { FC, useState } from "react";
-
-import VerifyIcon from "@/components/icons/home/verify";
-
-import { ProjectType, ProjectsProps } from "@/app/components/types";
+import { FC } from "react";
 import dynamic from "next/dynamic";
 import { Slide } from "react-awesome-reveal";
+import VerifyIcon from "@/components/icons/home/verify";
+import { ProjectType, ProjectsProps } from "@/app/components/types";
 const Project = dynamic(() => import("@/app/components/project"), { ssr: true })
 
 
 
 const Projects: FC<ProjectsProps> = ({ projects }) => {
 
-    const [showScrollbar, setShowScrollbar] = useState<true | false>(false);
-
-    let timeout: ReturnType<typeof setTimeout>;
-
-    const ScrollShowHandler = () => {
-        setShowScrollbar(true);
-        if (timeout) {
-            clearTimeout(timeout);
-        }
-        timeout = setTimeout(() => setShowScrollbar(false), 500);
-    };
 
     return (
         <Slide direction="right" duration={300} triggerOnce>
             <div
-                onScroll={ScrollShowHandler}
-                className={`md:grid flex md:grid-cols-1 gap-4 h-80 ${!showScrollbar && "no-scrollbar"}
-            md:overflow-y-scroll overflow-hidden [direction:ltr]`}>
+                className={`md:grid flex md:grid-cols-1 gap-4 h-80 
+                md:overflow-y-scroll overflow-hidden [direction:ltr]`}>
                 {
                     projects.map((project, index) => {
                         return (
-                            <div key={index} className="border group md:mb-10 border-[#E1E1E1] p-3 md:col-span-1
-                            rounded-xl hover:bg-[#292D32] transition duration-[400ms] cursor-pointer
-                            min-w-48 h-fit overflow-hidden rtl md:mr-4">
+                            <div key={index} className="border group md:mb-10 border-[#E1E1E1] 
+                            p-3 md:col-span-1 rounded-xl hover:bg-[#292D32] transition h-fit
+                            duration-[400ms] cursor-pointer min-w-48  overflow-hidden rtl md:mr-4">
                                 <p className="text-sm text-[#2F2F2F] group-hover:text-[#FFFFFF] 
                                 transition duration-[300ms]">
                                     {project.title}
                                 </p>
-                                <p className="text-xs mt-2 min-w-36 text-[#8B8B9A] hover-group:text-[#AAAAB5]
-                            h-4 overflow-hidden">{project.text}</p>
+                                <p className="text-xs mt-2 min-w-36 text-[#8B8B9A] 
+                                    hover-group:text-[#AAAAB5] h-4 overflow-hidden">
+                                    {project.text}
+                                </p>
                             </div>
                         )
                     })
@@ -83,7 +71,8 @@ const DoneProjects: FC = () => {
     return (
         <div className="bg-white rtl my-20 px-6 md:px-20 relative">
             <div className="flex items-center gap-4 justify-start mb-10">
-                <div className="bg-[#524CF21A] size-12 md:size-14 rounded-lg flex items-center justify-center">
+                <div className="bg-[#524CF21A] size-12 md:size-14 rounded-lg 
+                    flex items-center justify-center">
                     <div className="size-6 md:size-8">
                         <VerifyIcon />
                     </div>

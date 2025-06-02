@@ -49,11 +49,13 @@ const Introduction: FC = () => {
                     از صنعت چاپ است نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.</p>
 
                 <div className="flex items-center justify-start my-6 gap-4">
-                    <div className="flex items-center justify-center rounded-lg p-3 px-4 bg-[#252525]">
+                    <div className="flex items-center justify-center rounded-lg p-3 px-4 bg-[#252525]
+                        cursor-pointer hover:shadow-2xl transition duration-500">
                         <p className="text-white text-xs md:text-sm">رزومه کاری من</p>
                     </div>
 
-                    <div className="border border-[#E7E7E7] rounded-lg flex items-center justify-center p-3 gap-2">
+                    <div className="border border-[#E7E7E7] rounded-lg flex items-center justify-center p-3 gap-2
+                        transition duration-500 cursor-pointer hover:shadow-2xl">
                         <p className="text-xs md:text-sm text-[#2B2B2B]">به سمت کایرو حرکت کن</p>
                         <div className="size-4 md:size-5">
                             <ArrowLeftIcon />

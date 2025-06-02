@@ -172,7 +172,7 @@ const AboutMe: FC = () => {
     ]
 
     return (
-        <div className={`grid grid-cols-1 md:grid-cols-3 select-none`}>
+        <div className={`grid grid-cols-1 md:grid-cols-3`}>
             <Slide
                 duration={300}
                 triggerOnce
@@ -182,7 +182,7 @@ const AboutMe: FC = () => {
             </Slide>
             <div
                 className={`col-span-1 md:col-span-2 px-6 md:pl-20 md:mr-10 md:pr-10
-                ${open ? "aboutme-open" : "aboutme-close"} overflow-y-scroll`}>
+                ${open ? "aboutme-open overflow-y-scroll" : "aboutme-close overflow-y-hidden"}`}>
                 <Box title="تفریحات من" data={hobbies} />
                 <Box title="نویسنده مورد علاقم" data={writers} />
                 <Box title="علایق من" data={favorites} />

@@ -12,7 +12,8 @@ interface SocialProps {
 
 const Social: FC<SocialProps> = ({ name }) => {
     return (
-        <div className="col-span-1 rounded-[20px] border border-[2px] border-[#F0F0F0] min-w-72 md:min-w-auto">
+        <div className="col-span-1 group rounded-[20px] border border-[2px] 
+        border-[#F0F0F0] min-w-72 md:min-w-auto">
             <div className="w-full h-[168px] relative mb-6">
                 <Image
                     src={Image2}
@@ -57,8 +58,8 @@ const Social: FC<SocialProps> = ({ name }) => {
                 </div>
 
             </div>
-            <div className="transition duration-400 mt-2 rounded-b-[20px] py-2 py-4 hover:bg-[#2F2F2F] px-6
-            cursor-pointer group">
+            <div className="transition duration-400 mt-2 rounded-b-[20px] py-2 py-4 px-6
+            cursor-pointer group-hover:bg-[#2F2F2F]">
                 <div className="flex items-center justify-end gap-2 group-hover:hidden">
                     <p className="text-[#8B8B9A] text-[16px]">github.com/alirezaalavi</p>
                     <div className="size-[24px]">
@@ -77,7 +78,7 @@ const Socials = () => {
     const items = ["گیت هاب", "توییتر", "لینکدین", "تلگرام"]
 
     return (
-        <div className="bg-white rtl my-12 px-6 md:px-20 relative select-none">
+        <div className="bg-white rtl my-12 px-6 md:px-20 relative">
             <div className="flex items-center gap-4 justify-start mb-10">
                 <div className="bg-[#524CF21A] size-12 md:size-14 rounded-lg flex items-center justify-center">
                     <div className="size-6 md:size-8">

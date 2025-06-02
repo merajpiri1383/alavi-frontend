@@ -76,7 +76,7 @@ const IntroductionImages = () => {
         <div className="grid grid-cols-2 items-center gap-4">
             <div className="col-span-1 grid grid-cols-1 h-full">
                 <div className="col-span-1 relative h-64 w-full self-start">
-                    <Slide className="h-64 w-full relative" direction="right" triggerOnce>
+                    <div className="h-64 w-full relative">
                         <Image
                             src={Image2}
                             alt="image1"
@@ -85,17 +85,17 @@ const IntroductionImages = () => {
                             fill={true}
                             sizes="100%"
                         />
-                    </Slide>
+                    </div>
 
                     <SeniorBox />
                 </div>
 
-                <Slide className="col-span-1 self-end" triggerOnce direction="up">
+                <div className="col-span-1 self-end">
                     <ProjectBox />
-                </Slide>
+                </div>
             </div>
             <div className="col-span-1 grid grid-cols-1 gap-4 h-full">
-                <Slide duration={1500} className="col-span-1 self-start" direction="left" triggerOnce>
+                <div className="col-span-1 self-start">
                     <div className="relative h-48 w-full">
                         <Image
                             src={Image3}
@@ -109,12 +109,8 @@ const IntroductionImages = () => {
 
                         <MachineLearningBox />
                     </div>
-                </Slide>
-                <Slide
-                    className="col-span-1 relative self-end h-48 w-full"
-                    direction="up"
-                    triggerOnce
-                    duration={1500}>
+                </div>
+                <div className="col-span-1 relative self-end h-48 w-full">
                     <Image
                         src={Image1}
                         alt="image1"
@@ -123,7 +119,7 @@ const IntroductionImages = () => {
                         fill={true}
                         sizes="100%"
                     />
-                </Slide>
+                </div>
             </div>
         </div>
     )

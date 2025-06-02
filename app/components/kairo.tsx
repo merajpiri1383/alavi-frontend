@@ -8,7 +8,7 @@ import ArrowLeftIcon from "@/components/icons/home/arrowLeft";
 
 const Kairo = () => {
     return (
-        <div className="grid grid-cols-7 rtl px-6 md:px-20 my-12 gap-8 select-none" id="kairo">
+        <div className="grid grid-cols-7 rtl px-6 md:px-20 my-12 gap-8" id="kairo">
             <div className="col-span-7 md:col-span-2">
                 <div className="relative h-[280px] w-full z-[1]">
                     <Image
