@@ -89,8 +89,9 @@ const Form = () => {
                         ></textarea>
                     </div>
                 </div>
-                <div className="bg-[#524CF2] w-fit text-[#FFFFFF] text-[12px] font-[600]
-                my-4 p-3 rounded-[6px]" onClick={clickHandler}>ارسال دیدگاه</div>
+                <div className="bg-[#524CF2] w-fit text-[#FFFFFF] text-[12px] font-[600] shadow-2xl
+                my-4 p-3 rounded-[6px] hover:bg-[#6b66f5] transition duration-400 cursor-pointer" 
+                onClick={clickHandler}>ارسال دیدگاه</div>
             </div>
             <ToastContainer
                 draggable={true}

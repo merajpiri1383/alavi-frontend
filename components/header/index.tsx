@@ -7,7 +7,7 @@ import { useDeviceType } from "@/utils/hook/deviceType";
 import { CSSTransition } from 'react-transition-group';
 import "@/components/header/style.css";
 import Link from "next/link";
-const HeaderLinks = dynamic(() => import("@/components/header/links"), { ssr: false });
+const HeaderLinks = dynamic(() => import("@/components/header/links"),{ssr : false}); 
 const MobilePopup = dynamic(() => import("@/components/header/MobilePopup"), { ssr: false });
 
 
@@ -56,7 +56,7 @@ const Header: FC = () => {
 
                 <div
                     onClick={FormShowHandler} className="p-3 px-4 hidden md:block rounded-lg bg-[#524CF2]
-                    cursor-pointer">
+                    cursor-pointer hover:bg-[#6b66f5] hover:shadow-2xl transition duration-400">
                     <p className="text-sm text-white font-medium">فرصت های همکاری با من</p>
                 </div>
 
@@ -72,7 +72,7 @@ const Header: FC = () => {
                     deviceType === "mobile" &&
                     <CSSTransition
                         in={showPopup}
-                        timeout={0}
+                        timeout={600}
                         classNames="sidebar"
                         unmountOnExit
                         nodeRef={nodeRef}

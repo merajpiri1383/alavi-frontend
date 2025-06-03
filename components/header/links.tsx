@@ -38,7 +38,7 @@ const HeaderLinks: FC<HeaderLinsProps> = ({ showPopup, setShowPop }) => {
                 </div>
                 <CSSTransition
                     in={showPopup}
-                    timeout={300}
+                    timeout={600}
                     nodeRef={nodeRef}
                     unmountOnExit
                     classNames={"dropdown"}>

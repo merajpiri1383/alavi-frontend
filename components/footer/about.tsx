@@ -24,7 +24,7 @@ const About : FC<Props> = ({ is_mobile }) => {
             <div className="flex items-center justify-between">
 
                 <div className="bg-white flex items-center justify-center py-4 px-2 rounded-[10px]
-                    cursor-pointer gap-2"
+                    cursor-pointer gap-2 hover:shadow-2xl transition duration-400"
                     onClick={scrollTop}>
                     <div className="size-5">
                         <ArrowUp />

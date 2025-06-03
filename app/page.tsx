@@ -15,7 +15,7 @@ const MyExperience = dynamic(() => import("@/app/components/myExperience"),{ssr 
 
 export default function Home() {
     return (
-        <>
+        <div className="overflow-x-hidden">
             <Introduction />
             <WorkFields />
             <AboutMe />
@@ -28,6 +28,6 @@ export default function Home() {
             <Socials />
             <Form />
             <Kairo />
-        </>
+        </div>
     )
 }
