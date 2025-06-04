@@ -24,7 +24,7 @@ interface NoteProps {
 
 const Note: FC<NoteProps> = ({ image, date, title }) => {
     return (
-        <div className="col-span-1 flex items-center 
+        <div className="col-span-1 flex items-center
             justify-start  gap-2 my-4 md:my-0 gap-2" id="my_notes">
             <div className="size-[60px] flex-none md:size-[75px] relative">
                 <Image
@@ -114,7 +114,7 @@ const MyNotes: FC = () => {
     }
 
     return (
-        <div className="bg-white rtl my-12 px-6 md:px-20 relative">
+        <div className="bg-white rtl mt-12 px-6 md:px-20 relative">
             <div className="flex items-center gap-4 justify-start mb-6">
                 <div className="bg-[#524CF21A] size-12 md:size-14 rounded-lg flex items-center justify-center">
                     <div className="size-6 md:size-8">
@@ -130,7 +130,7 @@ const MyNotes: FC = () => {
                     </p>
                 </div>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-2 md:gap-4">
                 <Slide direction="right"
                     duration={400}
                     triggerOnce
@@ -189,30 +189,13 @@ const MyNotes: FC = () => {
                         space-y-2 z-10"/>
                 </div>
 
-                <Slide duration={400} triggerOnce>
-                    <div className="col-span-1 md:grid grid-cols-1 h-[450px] overflow-y-scroll no-scrollbar
-                    hidden">
-                        {
-                            data.map((item, index) => {
-                                return (
-                                    <Note
-                                        key={index}
-                                        date={item.date}
-                                        image={item.image}
-                                        title={item.title}
-                                    />
-                                )
-                            })
-                        }
-                    </div>
-                </Slide>
 
                 <div className="md:hidden">
                     <Swiper
                         direction="horizontal"
                         spaceBetween={30}
                         slidesPerView={1}
-                        className="w-full h-[300px]"
+                        className="w-full"
                     >
                         {
                             chunkedData.map((group, index) => {
@@ -237,6 +220,23 @@ const MyNotes: FC = () => {
                     </Swiper>
                 </div>
 
+                 <Slide duration={400} triggerOnce>
+                    <div className="col-span-1 md:grid grid-cols-1 h-[450px] overflow-y-scroll no-scrollbar
+                    hidden">
+                        {
+                            data.map((item, index) => {
+                                return (
+                                    <Note
+                                        key={index}
+                                        date={item.date}
+                                        image={item.image}
+                                        title={item.title}
+                                    />
+                                )
+                            })
+                        }
+                    </div>
+                </Slide>
             </div>
         </div>
     )

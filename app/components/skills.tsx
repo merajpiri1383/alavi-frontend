@@ -41,7 +41,7 @@ const Skills = () => {
 
     return (
         <div className="bg-white rtl my-6 px-6 md:px-20 relative">
-            <div className="flex items-center gap-4 justify-start mb-10">
+            <div className="flex items-center gap-4 justify-start mb-6 md:mb-10">
                 <div className="bg-[#524CF21A] size-12 md:size-14 rounded-lg flex items-center justify-center">
                     <div className="size-6 md:size-8">
                         <CroneIcon color={"#524CF2"} />
@@ -59,7 +59,7 @@ const Skills = () => {
 
             <div
 
-                className="flex z-5 overflow-x-scroll no-scrollbar py-12 md:py-0 md:grid md:grid-cols-4">
+                className="flex z-5 overflow-x-scroll no-scrollbar md:py-0 md:grid md:grid-cols-4">
                 {
                     list.map((item, index) => {
                         return <Item key={index} />

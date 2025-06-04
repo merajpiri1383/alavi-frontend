@@ -80,7 +80,7 @@ const Item: FC<ItemProps> = ({ index }) => {
             <p className={`hidden md:block w-[45vw] ${index % 2 === 0 ? "text-right" : "text-left"}
             text-[16px] font-[600] text-[#2B2B2B]`}>دی ماه ۱۴۰۲ - اسفند ماه ۱۴۰۳</p>
             <div className="h-full col-span-1">
-                <div className="size-[20px] mx-auto">
+                <div className="size-[20px] mx-auto mt-15 md:mt-0">
                     <EllipseIcon color="#A5A5A5" hoverColor="#524CF2" />
                 </div>
                 <div className="w-2 h-64 mx-auto">
@@ -88,7 +88,7 @@ const Item: FC<ItemProps> = ({ index }) => {
                 </div>
             </div>
             <div className="col-span-9 md:w-[45vw] rtl">
-                <p className="text-[12px] mb-3 md:hidden">دی ماه ۱۴۰۲ - اسفند ماه ۱۴۰۳</p>
+                <p className="text-[12px] mb-6 md:hidden">دی ماه ۱۴۰۲ - اسفند ماه ۱۴۰۳</p>
                 <Experience />
             </div>
         </div>
@@ -132,10 +132,10 @@ const MyExperience = () => {
                     }
                 </div>
             <div className="flex items-center justify-start z-[2] md:justify-center">
-                <div className="flex items-center justify-start gap-4 md:flex-col cursor-pointer">
+                <div className="flex items-center justify-start gap-4 md:flex-col cursor-pointer"
+                    onClick={() => setShowMore(!showMore)}>
                     <div className="bg-[#524CF2] rounded-full flex items-center justify-center p-1 py-2">
-                        <div className={`h-[20px] ${showMore && "rotate-180"} `}
-                            onClick={() => setShowMore(!showMore)}>
+                        <div className={`h-[20px] ${showMore && "rotate-180"} `}>
                             <ArrowDownIcon2 />
                         </div>
                     </div>

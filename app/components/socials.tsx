@@ -78,8 +78,8 @@ const Socials = () => {
     const items = ["گیت هاب", "توییتر", "لینکدین", "تلگرام"]
 
     return (
-        <div className="bg-white rtl my-12 px-6 md:px-20 relative">
-            <div className="flex items-center gap-4 justify-start mb-10">
+        <div className="bg-white rtl my-6 relative">
+            <div className="flex items-center gap-4 justify-start md:mb-10 px-6 md:px-20">
                 <div className="bg-[#524CF21A] size-12 md:size-14 rounded-lg flex items-center justify-center">
                     <div className="size-6 md:size-8">
                         <MobileIcon color={"#524CF2"} />
@@ -94,7 +94,8 @@ const Socials = () => {
                     </p>
                 </div>
             </div>
-            <div className="flex z-5 overflow-x-scroll no-scrollbar py-12 md:py-0 md:grid md:grid-cols-4 gap-4">
+            <div className="flex z-5 px-6 md:px-20 overflow-x-scroll no-scrollbar 
+                py-8 md:py-0 md:grid md:grid-cols-4 gap-4">
                 {
                     items.map((item, index) => {
                         return (

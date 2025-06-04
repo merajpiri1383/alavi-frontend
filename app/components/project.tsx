@@ -78,7 +78,7 @@ const Project: FC<ProjectType> = () => {
                     با تولید سادگی نامفهوم از صنعت چاپ است نامفهوم از صنعت چاپ و با استفاده میباشد.</p>
             </div>
 
-            <div className="w-full my-4 md:my-0  relative col-span-1 md:col-span-2">
+            <div className="h-[190px] md:h-auto md:w-full my-4 md:my-0 relative col-span-1 md:col-span-2">
                 <Image
                     src={HotelImage}
                     alt="hotel image"

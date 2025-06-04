@@ -38,7 +38,7 @@ const BrandsWorked = () => {
 
     return (
         <div className="rtl my-6 px-6 md:px-20 relative">
-            <div className="flex items-center gap-4 justify-start mb-10">
+            <div className="flex items-center gap-4 justify-start mb-6 md:mb-10">
                 <div className="bg-[#524CF21A] size-12 md:size-14 rounded-lg flex items-center justify-center">
                     <div className="size-6 md:size-8">
                         <CroneIcon color={"#524CF2"} />
@@ -65,17 +65,33 @@ const BrandsWorked = () => {
                 </div>
             </Slide>
 
-            <div
-                style={{ boxShadow: "0px 0px 100px 30px #AAB3F1" }}
-                className="absolute md:block top-32 bottom-20 left-[75%] right-0 none z-[3]"></div>
+            <div className="hidden md:block">
+                <div
+                    style={{ boxShadow: "0px 0px 100px 30px #AAB3F1" }}
+                    className="absolute md:block top-32 bottom-20 left-[75%] right-0 none z-[3]"></div>
 
-            <div
-                style={{ boxShadow: "0px 0px 100px 30px #A77AFF" }}
-                className="absolute  md:block top-32 bottom-20 left-[25%] right-[25%] none z-[3]"></div>
+                <div
+                    style={{ boxShadow: "0px 0px 100px 30px #A77AFF" }}
+                    className="absolute  md:block top-32 bottom-20 left-[25%] right-[25%] none z-[3]"></div>
 
-            <div
-                style={{ boxShadow: "0px 0px 100px 30px #D662C3" }}
-                className="absolute md:block top-32 bottom-20 left-10 right-[75%] none z-[3]"></div>
+                <div
+                    style={{ boxShadow: "0px 0px 100px 30px #D662C3" }}
+                    className="absolute md:block top-32 bottom-20 left-10 right-[75%] none z-[3]"></div>
+            </div>
+
+            <div className="md:hidden">
+                <div
+                    style={{ boxShadow: "0px 0px 100px 15px #AAB3F1" }}
+                    className="absolute md:block top-32 bottom-20 left-[75%] right-0 none z-[3]"></div>
+
+                <div
+                    style={{ boxShadow: "0px 0px 100px 15px #A77AFF" }}
+                    className="absolute  md:block top-32 bottom-20 left-[25%] right-[25%] none z-[3]"></div>
+
+                <div
+                    style={{ boxShadow: "0px 0px 100px 15px #D662C3" }}
+                    className="absolute md:block top-32 bottom-20 left-10 right-[75%] none z-[3]"></div>
+            </div>
         </div>
     )
 }; export default memo(BrandsWorked);

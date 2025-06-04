@@ -9,7 +9,7 @@ const WorkWithMe = () => {
     return (
         <>
             <div className="flex items-center justify-between bg-white py-3 rounded-[8px] my-3 md:my-0
-            md:bg-inherit md:justify-end">
+            md:bg-inherit md:justify-end px-4">
                 <div className="size-6 md:hidden active:scale-95 hover:scale-115 transition cursor-pointer"
                     onClick={() => setOpen(!open)}>
                     {

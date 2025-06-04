@@ -18,22 +18,22 @@ const Contact = () => {
                 <span className="text-[#2B2B2B]">کنار شما دوستان عزیز هستم :)</span>
             </p>
             <div className="md:flex items-center justify-between my-2 gap-8 flex-row-reverse">
-                <div className="my-2 flex items-center justify-start gap-2">
-                    <div className="size-6">
+                <div className="my-1 md:my-2 flex items-center justify-start gap-2">
+                    <div className="size-4 md:size-6">
                         <LocationIcon />
                     </div>
                     <p className="text-[#2B2B2B] font-[700] text-[12px] md:text-[14px]">
                         گرگان، گلستان خیابان مطهری، رو به رو بانک پارسیان</p>
                 </div>
-                <div className="my-2 flex items-center justify-start gap-2">
-                    <div className="size-6">
+                <div className="my-1 md:my-2 flex items-center justify-start gap-2">
+                    <div className="size-4 md:size-6">
                         <MessageIcon />
                     </div>
                     <p className="text-[#2B2B2B] font-[700] text-[12px] md:text-[14px]">
                         info@alirezaalavi.com</p>
                 </div>
-                <div className="my-2 flex items-center justify-start gap-2">
-                    <div className="size-6">
+                <div className="my-1 md:my-2 flex items-center justify-start gap-2">
+                    <div className="size-4 md:size-6">
                         <CallIcon />
                     </div>
                     <p 

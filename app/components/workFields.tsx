@@ -18,8 +18,8 @@ interface ItemProps {
 const Item: FC<ItemProps> = ({ active_icon, icon, text, title }) => {
     return (
         <article className="relative py-2 md:py-6 group cursor-pointer col-span-1
-            transition duration-400 border-[2px] border-[#E1E1E1] hover:border-[#4B5BCE] 
-            rounded-[20px] min-w-[135px] hover:shadow-[0_0_20px_rgba(0,0,0,0.25)]">
+            transition duration-400 md:border-[2px] border-[#E1E1E1] hover:border-[#4B5BCE] 
+            rounded-[20px] min-w-[135px] hover:shadow-[0_0_20px_rgba(0,0,0,0.25)] border-[1.5px]">
             <div className="relative z-10 size-[32px] md:size-[55px] mx-auto my-2 group-hover:hidden">
                 {icon}
             </div>
@@ -81,8 +81,8 @@ const WorkFields = () => {
             </div>
 
             <Slide direction="up" duration={200} triggerOnce>
-                <div className="py-6 flex items-center overflow-x-scroll md:grid grid-cols-5 gap-6
-                    no-scrollbar">
+                <div className="py-6 flex items-center overflow-x-scroll md:grid grid-cols-5 gap-3
+                    no-scrollbar md:gap-6">
                     {
                         items.map((item, index) => {
                             return (
