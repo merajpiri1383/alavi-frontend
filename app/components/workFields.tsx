@@ -17,7 +17,7 @@ interface ItemProps {
 
 const Item: FC<ItemProps> = ({ active_icon, icon, text, title }) => {
     return (
-        <article className="relative py-2 md:py-6 group cursor-pointer col-span-1
+        <article className="relative py-2 md:py-6 mb-2 md:mb-6 group cursor-pointer col-span-1
             transition duration-400 md:border-[2px] border-[#E1E1E1] hover:border-[#4B5BCE] 
             rounded-[20px] min-w-[135px] hover:shadow-[0_0_20px_rgba(0,0,0,0.25)] border-[1.5px]">
             <div className="relative z-10 size-[32px] md:size-[55px] mx-auto my-2 group-hover:hidden">
@@ -67,7 +67,7 @@ const WorkFields = () => {
     ]
 
     return (
-        <div className="bg-white rtl my-6 px-6 md:px-20" id="workfields">
+        <div className="rtl mt-12 px-6 md:px-20" id="workfields">
             <div className="flex items-center justify-start gap-4">
                 <div className="bg-[#524CF21A] size-12 md:size-14 rounded-lg flex items-center justify-center">
                     <div className="size-6 md:size-8">

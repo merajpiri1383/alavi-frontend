@@ -129,7 +129,7 @@ const Project: FC<ProjectType> = () => {
                 </div>
             </div>
 
-            <div className="my-4 bg-[#524CF2] w-fit text-white rounded-[6px] p-3 text-xs cursor-pointer
+            <div className="mt-4 bg-[#524CF2] w-fit text-white rounded-[6px] p-3 text-xs cursor-pointer
                 hover:bg-[#807ff0] transition duration-400">
                 مطالعه جزئیات پروژه
             </div>

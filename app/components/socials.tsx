@@ -78,7 +78,7 @@ const Socials = () => {
     const items = ["گیت هاب", "توییتر", "لینکدین", "تلگرام"]
 
     return (
-        <div className="bg-white rtl my-6 relative">
+        <div className="rtl mb-12 relative">
             <div className="flex items-center gap-4 justify-start md:mb-10 px-6 md:px-20">
                 <div className="bg-[#524CF21A] size-12 md:size-14 rounded-lg flex items-center justify-center">
                     <div className="size-6 md:size-8">

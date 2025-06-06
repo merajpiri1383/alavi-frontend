@@ -37,7 +37,7 @@ const BrandsWorked = () => {
     const images = [Logo1, Logo2, Logo3, Logo4, Logo5, Logo6]
 
     return (
-        <div className="rtl my-6 px-6 md:px-20 relative">
+        <div className="rtl my-12 px-6 md:px-20 relative">
             <div className="flex items-center gap-4 justify-start mb-6 md:mb-10">
                 <div className="bg-[#524CF21A] size-12 md:size-14 rounded-lg flex items-center justify-center">
                     <div className="size-6 md:size-8">
