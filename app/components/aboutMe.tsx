@@ -1,5 +1,5 @@
 "use client"
-import { FC, memo, useState } from "react";
+import React, { FC, memo, useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import AlaviImage from "@/public/images/alavi.svg";
 import FourIcon from "@/components/icons/home/four";
@@ -100,8 +100,20 @@ interface StoryProps {
 }
 
 const Story: FC<StoryProps> = ({ open }) => {
+    const ref = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        if (ref.current) {
+            ref.current.style.setProperty("--open-height", ref.current.scrollHeight + "px");
+            ref.current.style.setProperty("--close-height","100px");
+        }
+    },[open]);
+
     return (
-        <div className={`rtl my-6 ${open ? "" : ""}`}>
+        <div
+            ref={ref} 
+            className={`rtl my-6 ${open ? "story-open" : "story-close"} transition 
+            duration-400 overflow-hidden`}>
             <p className="text-sm font-semibold md:text-xl text-[#2B2B2B]">داستان کوتاه من</p>
             <p className="text-xs text-[#727379] leading-6 my-3 text-justify">لورم ایپسوم متن ساختگی
                 با تولید سادگی نامفهوم از صنعت چاپ، و با اینکه آن استفاده از طراحان گرافیک است
@@ -181,8 +193,7 @@ const AboutMe: FC = () => {
                 <AboutMeImage />
             </Slide>
             <div
-                className={`col-span-1 md:col-span-2 px-6 md:pl-20 md:mr-10 md:pr-10
-                ${open ? "aboutme-open overflow-y-scroll" : "aboutme-close overflow-y-hidden"}`}>
+                className={`col-span-1 md:col-span-2 px-6 md:pl-20 md:mr-10 md:pr-10`}>
                 <Box title="تفریحات من" data={hobbies} />
                 <Box title="نویسنده مورد علاقم" data={writers} />
                 <Box title="علایق من" data={favorites} />
@@ -190,9 +201,9 @@ const AboutMe: FC = () => {
             </div>
             <div className="col-span-1"></div>
             <div
-                style={{ boxShadow: "0px -10px 10px 5px white" }}
+                style={{ boxShadow: "0px -15px 100px 30px white" }}
                 className="w-full flex col-span-1 md:col-span-2 items-center justify-center">
-                <div className="flex items-center justify-center gap-2 my-2
+                <div className="flex items-center justify-center gap-2 
                     cursor-pointer" onClick={() => setOpen(!open)}>
                     <div className="size-5">
                         {

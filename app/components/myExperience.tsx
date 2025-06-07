@@ -6,7 +6,7 @@ import VerticalLineIcon from "@/components/icons/home/verticalLine";
 import BrowserIcon from "@/components/icons/home/browser";
 import ZaravanIcon from "@/public/images/zaravan.svg";
 import ArrowDownIcon2 from "@/components/icons/home/arrowDown2";
-import { FC, memo, useRef, useState } from "react";
+import { FC, memo, useEffect, useRef, useState } from "react";
 import { Slide } from "react-awesome-reveal";
 
 
@@ -99,6 +99,13 @@ const MyExperience = () => {
 
     const items = [1, 2, 3, 4, 5];
     const [showMore, setShowMore] = useState<true | false>(false);
+    const contentRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        if (contentRef.current) {
+            contentRef.current.style.setProperty("--show-height", contentRef.current.scrollHeight + "px")
+        }
+    } ,[]);
 
     return (
         <div className="rtl mb-12 px-6 md:px-20 relative" id="my_experience">
@@ -117,7 +124,7 @@ const MyExperience = () => {
             </div>
 
             <div
-                style={{"--show-height" : items.length * 270 + "px"} as React.CSSProperties} 
+                ref={contentRef}
                 className={`grid grid-cols-1 
                 ${!showMore ? "experience-hide " : "experience-show"} overflow-hidden`}>
                     {

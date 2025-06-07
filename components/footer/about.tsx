@@ -35,8 +35,8 @@ const About : FC<Props> = ({ is_mobile }) => {
                     }
                 </div>
 
-                <div className="flex items-center justify-end gap-4 bg-white 
-                    p-2 pl-12 rounded-[10px] relative">
+                <Link className="flex items-center justify-end gap-4 bg-white 
+                    p-2 pl-12 rounded-[10px] relative" href={"/"}>
                     <div className="size-[15px] absolute left-0 -translate-x-[50%]">
                         <FourIcon color="#C7CEE8" />
                     </div>
@@ -47,13 +47,13 @@ const About : FC<Props> = ({ is_mobile }) => {
                         <FourIcon color="#524CF2" />
                     </div>
                     <div className="rtl">
-                        <Link href={"/"} className="text-xs font-bold">علیرضا علوی</Link>
+                        <p className="text-xs font-bold">علیرضا علوی</p>
                         <p className="text-xs font-bold">Alireza Alavi</p>
                     </div>
                     <div className="size-10">
                         <LogoIcon />
                     </div>
-                </div>
+                </Link>
             </div>
             <p className="text-justify text-[12px] rtl leading-6 my-2 text-[#69696F] font-[600]">
                 لورم ایپسوم متنساختگی با تولید سادگی نامفهوم از صنعت چاپ

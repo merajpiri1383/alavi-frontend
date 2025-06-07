@@ -32,7 +32,7 @@ const Projects: FC<ProjectsProps> = ({ projects }) => {
     return (
         <Slide direction="right" duration={300} triggerOnce>
             <div
-                className={`md:hidden flex gap-4 no-scrollbar overflow-x-scroll [direction:ltr]`}>
+                className={`md:hidden flex gap-4 no-scrollbar overflow-x-scroll [direction:rtl]`}>
                 {
                     projects.map((project, index) => {
                         return (

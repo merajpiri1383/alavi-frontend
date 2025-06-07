@@ -8,56 +8,6 @@
     transition: 1s;
 }
 
-@keyframes AboutMeOpen {
-    from {
-        height: 550px;
-    }
-
-    to {
-        height: 800px;
-    }
-}
-
-.aboutme-open {
-    animation: AboutMeOpen 700ms both;
-}
-
-@keyframes AboutMeClose {
-    from {
-        height: 800px;
-    }
-
-    to {
-        height: 550px;
-    }
-}
-
-@media only screen and (max-width :768px) {
-
-    @keyframes AboutMeOpen {
-        from {
-            height: 400px;
-        }
-
-        to {
-            height: 800px;
-        }
-    }
-
-    @keyframes AboutMeClose {
-        from {
-            height: 850px;
-        }
-
-        to {
-            height: 400px;
-        }
-    }
-}
-
-.aboutme-close {
-    animation: AboutMeClose 700ms both;
-}
 
 @keyframes ShowLink {
     from {
@@ -91,4 +41,32 @@
 .hide-link{
     animation: HideLink 500ms both;
     overflow: hidden;
+}
+
+
+
+@keyframes StoryClose {
+    from {
+        height: var(--open-height);
+    }
+    to {
+        height: var(--close-height);
+    }
+}
+
+@keyframes StoryOpen {
+    to {
+        height: var(--open-height);
+    }
+    from {
+        height: var(--close-height);
+    }
+}
+
+.story-close {
+    animation: 400ms both StoryClose;
+}
+
+.story-open {
+    animation: 400ms both StoryOpen;
 }

@@ -68,7 +68,7 @@ const Form = () => {
                             <input
                                 className="bg-[#E8E8E8] rounded-[8px] p-3 text-[12px] transition duration-500
                                 font-[600] text-[#878787] focus:text-[#2F2F2F] w-full outline-none"
-                                placeholder="نام و نام خانوداگی"
+                                placeholder="*نام و نام خانوداگی"
                             />
                         </div>
                         <div className="col-span-1">
