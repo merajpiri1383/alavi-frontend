@@ -19,18 +19,23 @@ const Item: FC<WorkWithMeType> = ({ active_icon, icon, text, title }) => {
     return (
         <Slide duration={400} direction="up" triggerOnce>
             <div className="p-4 rounded-[16px] group cursor-pointer transition duration-400
-            min-w-64 hover:shadow-[0_0_20px_rgba(0,0,0,0.2)]">
-            <div className="size-[45px] border-[1.5px] border-[#E1E1E1] flex items-center justify-center
-                rounded-[10px] group-hover:bg-[#524CF2] transition duration-400 group-hover:border-none">
+            min-w-72 hover:shadow-[0_0_20px_rgba(0,0,0,0.2)] shadow-[0_0_20px_rgba(0,0,0,0.05)] 
+            border-1 md:shadow-none md:border-none border-[#E7E7E7]">
+            <div className="size-[45px] border-[1.5px] border-[#E1E1E1] md:flex items-center justify-center
+                rounded-[10px] hidden group-hover:bg-[#524CF2] transition duration-400 group-hover:border-none">
                 <div className="size-[25px] group-hover:hidden">{icon}</div>
                 <div className="size-[25px] group-hover:block hidden">{active_icon}</div>
+            </div>
+            <div className="size-[45px] md:hidden flex items-center justify-center
+                rounded-[10px] bg-[#524CF2] transition duration-400">
+                <div className="size-[25px] block">{active_icon}</div>
             </div>
             <p className="text-[14px] mt-4 my-2 font-[700] text-[#0D0E11] h-4 overflow-hidden">{title}</p>
             <p className="text-[11px] my-2 h-4 overflow-hidden font-[600] text-[#8B8B9A]">{text}</p>
 
-            <div className="group-hover:text-[#FFFFFF] font-[600] text-[10px] bg-[#F2F2F2] 
-            rounded-[8px] w-fit p-3 my-3 cursor-pointer group-hover:bg-[#292D32]
-            transition duration-400 text-[#3D3D3D]">درخواست فرم</div>
+            <div className="group-hover:text-[#FFFFFF] font-[600] text-[10px] md:bg-[#F2F2F2] 
+            rounded-[8px] w-fit p-3 my-3 cursor-pointer group-hover:bg-[#292D32] bg-[#292D32]
+            transition duration-400 text-[#FFFFFF] md:text-[#3D3D3D]">درخواست فرم</div>
         </div>
         </Slide>
     )
