@@ -75,7 +75,7 @@ const Social: FC<SocialProps> = ({ name }) => {
 
 const Socials = () => {
 
-    const items = ["گیت هاب", "توییتر", "لینکدین", "تلگرام"]
+    const items = ["گیت هاب", "توییتر", "لینکدین", "تلگرام"];
 
     return (
         <div className="rtl mb-12 relative">
@@ -99,7 +99,8 @@ const Socials = () => {
                 {
                     items.map((item, index) => {
                         return (
-                            <Slide key={index} duration={400} direction="up" triggerOnce>
+                            <Slide
+                                key={index} duration={400} direction="up" triggerOnce>
                                 <Social name={item} />
                             </Slide>
                         )

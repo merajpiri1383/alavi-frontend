@@ -86,7 +86,7 @@ const WorkWithMe = () => {
             </div>
 
             <div className="flex z-5 overflow-x-scroll no-scrollbar md:py-0 md:grid md:grid-cols-4 gap-4
-                px-5 py-6 md:py-6">
+                md:px-5 justify-start py-6 md:py-6">
                 {
                     data.map((item, index) => {
                         return (
