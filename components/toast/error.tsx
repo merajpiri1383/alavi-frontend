@@ -6,7 +6,7 @@ interface Props {
 
 const ToastError : FC<Props> = ({ message }) => {
     return (
-        <div className="rtl w-full">
+        <div className="rtl w-full" onClick={(e) => e.stopPropagation()}>
             <p className="text-[#FF3549] font-[500] text-[15px]">خطایی رخ داد!</p>
             <p className="text-[#262626] font-[400] text-[13px]">{message}</p>
         </div>

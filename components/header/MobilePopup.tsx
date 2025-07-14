@@ -1,4 +1,4 @@
-import { FC, memo, useRef, useState } from "react";
+import React, { FC, memo, useRef, useState } from "react";
 import { CSSTransition } from "react-transition-group";
 import LogoIcon from "@/icons/header/logo";
 import ArrowDownIcon from "@/icons/header/arrowDown";
@@ -7,7 +7,12 @@ import "@/components/header/style.css";
 import Link from "next/link";
 
 
-const DownLink = () => {
+type DownLinkProps = {
+    setForm : React.Dispatch<React.SetStateAction<boolean>>,
+    setShowPop : React.Dispatch<React.SetStateAction<boolean>>,
+}
+
+const DownLink : FC<DownLinkProps> = ({ setForm , setShowPop }) => {
 
     const nodeRef = useRef(null);
     const [openDropDwon, setDropDown] = useState<true | false>(false);
@@ -15,6 +20,11 @@ const DownLink = () => {
     const showHandler = () => {
         setDropDown(!openDropDwon);
     };
+
+    const showFormHandler = () => {
+        setShowPop(false);
+        setTimeout(() => setForm(true) , 600)
+    }
 
     return (
         <>
@@ -41,7 +51,8 @@ const DownLink = () => {
                 in={openDropDwon}>
                 <div ref={nodeRef} className="dropdown rtl">
                     <div className="col-span-1 border-r-2 text-[##0D0E11] border-[#D9D9D9] text-xs pr-3">
-                        <p className="my-2">درخواﺳﺖ جلسه حضوری، آنلاین</p>
+                        <p  onClick={showFormHandler}
+                            className="my-2 cursor-pointer">درخواﺳﺖ جلسه حضوری، آنلاین</p>
                         <p className="my-2">توضیح پروژه، دریافت مشاوره تخصصی</p>
                         <p className="my-2">ارسال رزومه برای همکاری شغلی، پروژه ای</p>
                         <p className="my-2">درخواست بررسی رایگان پروژه، وبسایت</p>
@@ -123,7 +134,12 @@ const Links: FC = () => {
     )
 }
 
-const MobilePopup: FC = () => {
+interface MobileProps {
+    setForm : React.Dispatch<React.SetStateAction<boolean>>,
+    setShowPop : React.Dispatch<React.SetStateAction<boolean>>,
+}
+
+const MobilePopup: FC<MobileProps> = ({ setForm , setShowPop }) => {
     return (
         <div className="bg-white h-full w-[75vw] py-12 px-6" onClick={(e) => e.stopPropagation()}>
 
@@ -141,7 +157,10 @@ const MobilePopup: FC = () => {
 
             <div className="h-[1.5px] w-full bg-[#E6E6E6]"></div>
 
-            <DownLink />
+            <DownLink 
+                setForm={setForm} 
+                setShowPop={setShowPop}
+            />
 
         </div>
     )

@@ -42,20 +42,20 @@
 
 .top-bottom-enter {
     opacity: 0%;
-    transition: 600ms;
+    transition: 1s;
 }
 
 .top-bottom-enter-active {
     opacity: 100%;
-    transition: 600ms;
+    transition: 1s;
 }
 
 .top-bottom-exit {
     opacity: 100%;
-    transition: 600ms;
+    transition: 1s;
 }
 
 .top-bottom-exit-active {
     opacity: 0%;
-    transition: 400ms;
+    transition: 1s;
 }
