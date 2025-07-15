@@ -10,6 +10,7 @@ interface Props {
     value: string,
     setValue: React.Dispatch<React.SetStateAction<string>>,
     className ?: string,
+    icon ?: React.ReactNode,
 }
 
 type DropDownInputItemProps = {
@@ -35,7 +36,8 @@ const DropDownInput: FC<Props> = ({
     placeholder,
     setValue,
     value,
-    className
+    className,
+    icon,
 }) => {
 
     const [open, setOpen] = useState<boolean>(false);
@@ -47,7 +49,7 @@ const DropDownInput: FC<Props> = ({
     }
 
     return (
-        <div className={`col-span-2 bg-[#F9F9F9] border-[1.3px] border-[#EFEFEF]
+        <div className={`col-span-2 bg-[#F9F9F9] border-[1.3px] border-[#EFEFEF] md:col-span-1
             rounded-[10px] flex items-center justify-between p-[20px] relative ` + className}
             onClick={() => setOpen(!open)} ref={dropInputRef}>
 
@@ -59,7 +61,7 @@ const DropDownInput: FC<Props> = ({
 
             <div className="size-[17px]">
                 {
-                    !open ? <ArrowDown color="#A4A4A4" /> : <ArrowUp color="#A4A4A4" />
+                    icon ? icon : (!open ? <ArrowDown color="#A4A4A4" /> : <ArrowUp color="#A4A4A4" />)
                 }   
             </div>
 

@@ -1,3 +1,5 @@
+
+
 import React, { FC, useState } from "react";
 import { Slide } from "react-awesome-reveal";
 import DatePicker from "react-multi-date-picker"
@@ -7,18 +9,17 @@ import DropDownInput from "@/utils/hook/inputDropdown";
 import CalendarIcon from "@/components/icons/header/calendar";
 import CloseIcon from "@/icons/header/close";
 import ClockIcon from "@/components/icons/header/clock";
+import DocumentUpload from "@/components/icons/header/documentUpload";
 
-interface OnlineFormProps {
+interface ExplainProjectProps {
     setShowForm: React.Dispatch<React.SetStateAction<boolean>>
 }
 
 
 
 
-const OnlineForm: FC<OnlineFormProps> = ({ setShowForm }) => {
+const ExplainProject: FC<ExplainProjectProps> = ({ setShowForm }) => {
 
-    const [meetingTopic, setMeetingTopic] = useState<string>("");
-    const [businessType, setBusinessType] = useState<string>("");
     const [meetingTime, setMeetingTime] = useState<string>("");
 
     return (
@@ -26,10 +27,10 @@ const OnlineForm: FC<OnlineFormProps> = ({ setShowForm }) => {
             <div className="md:gap-32 flex items-center justify-between mt-12 md:my-0 mx-[30px]">
                 <div>
                     <p className="text-[#2B2B2B] font-[600] text-[14px] mb-1 md:text-[16px]">
-                        فرم درخواستی جلسه حضوری، آنلاین
+                        توضیح پروژه، دریافت مشاوره تخصصی
                     </p>
                     <p className="text-[#5A6166] font-[500] text-[12px] md:text-[14px]">
-                        برای آشنایی، گفت و گوی اولیه یا بررسی کلیه پروژه
+                        فرصتی برای بررسی نیاز ها و دریافت دیدگاه حرفه ای
                     </p>
                 </div>
 
@@ -48,7 +49,7 @@ const OnlineForm: FC<OnlineFormProps> = ({ setShowForm }) => {
                         type="text"
                         className="text-[#2F2F2F] font-semibold text-[12px] placeholder-[#B4B4BB]
                         w-full outline-none p-[20px]"
-                        placeholder="نام و نام خانوادگی خود را وارد نمایید"
+                        placeholder="* نام و نام خانوادگی خود را وارد نمایید"
                     />
                 </div>
 
@@ -58,25 +59,37 @@ const OnlineForm: FC<OnlineFormProps> = ({ setShowForm }) => {
                         type="text"
                         className="text-[#2F2F2F] font-semibold text-[12px] placeholder-[#B4B4BB]
                         w-full outline-none p-[20px]"
-                        placeholder="شماره تماس خود را وارد نمایید"
+                        placeholder="* شماره تماس خود را وارد نمایید"
                     />
                 </div>
 
-                <DropDownInput
-                    items={["مشاوره اولیه", "بررسی ایده", "بررسی پروژه جاری",
-                        "طراحی یا توسعه وبسایت", "طراحی اپلیکیشن", "همکاری یا دعوت به تیم"
-                    ]}
-                    placeholder="موضوع جلسه"
-                    value={meetingTopic}
-                    setValue={setMeetingTopic}
-                />
+                <div className="md:col-span-1 col-span-2 bg-[#F9F9F9] border-[1.3px] border-[#EFEFEF]
+                    rounded-[10px]">
+                    <input
+                        type="text"
+                        className="text-[#2F2F2F] font-semibold text-[12px] placeholder-[#B4B4BB]
+                        w-full outline-none p-[20px]"
+                        placeholder="* عنوان پروژه"
+                    />
+                </div>
 
-                <DropDownInput
-                    items={["فروشگاهی", "خدماتی", "آموزشی", "استارتاپی", "شخصی"]}
-                    placeholder="زمینه فعالیت، نوع کسب و کار"
-                    setValue={setBusinessType}
-                    value={businessType}
-                />
+                <div className="md:col-span-1 col-span-2 bg-[#F9F9F9] border-[1.3px] border-[#EFEFEF] gap-6
+                    rounded-[10px] flex items-center justify-between p-[16px] relative cursor-pointer">
+                    <p className=" font-semibold text-[12px] text-[#B4B4BB] w-fit outline-none ">
+                        ارسال فایل
+                    </p>
+                    <input type="file"
+                        className="absolute opacity-[0%]"
+                    />
+
+                    <div className="bg-[#524CF21A] flex items-center gap-[7px] justify-center p-[6px]
+                        rounded-[5px]">
+                        <div className="size-[14px]">
+                            <DocumentUpload />
+                        </div>
+                        <p className="text-[10px] text-[#524CF2] font-[500]">انتخاب فایل مدنظر</p>
+                    </div>
+                </div>
 
                 <div className="md:col-span-1 col-span-2 bg-[#F9F9F9] border-[1.3px] border-[#EFEFEF]
                     rounded-[10px] flex items-center justify-between">
@@ -85,7 +98,7 @@ const OnlineForm: FC<OnlineFormProps> = ({ setShowForm }) => {
                         calendar={Persion}
                         inputClass="text-[#2F2F2F] font-semibold text-[12px] placeholder-[#B4B4BB]
                         w-full outline-none p-[20px]"
-                        placeholder="تاریخ مناسب برای جلسه"
+                        placeholder="تاریخ مناسب برای جلسه (اختیاری)"
                     />
                     <div className="size-[20px] mx-[20px]">
                         <CalendarIcon />
@@ -96,7 +109,7 @@ const OnlineForm: FC<OnlineFormProps> = ({ setShowForm }) => {
                     items={["ساعت ۹:۰۰ تا ۱۰:۰۰", "ساعت ۱۰:۰۰ تا ۱۱:۰۰", "ساعت ۱۱:۰۰ تا ۱۲:۰۰",
                         "ساعت ۱۲:۰۰ تا ۱۳:۰۰", "ساعت ۱۳:۰۰ تا ۱۴:۰۰", "ساعت ۱۴:۰۰ تا ۱۵:۰۰"
                     ]}
-                    placeholder="ساعت مناسب برای جلسه"
+                    placeholder="ساعت مناسب برای جلسه (اختیاری)"
                     setValue={setMeetingTime}
                     value={meetingTime}
                     icon={<div className="size-[20px]"><ClockIcon /></div>}
@@ -108,7 +121,8 @@ const OnlineForm: FC<OnlineFormProps> = ({ setShowForm }) => {
                     <textarea
                         className="text-[#2F2F2F] font-semibold text-[12px] placeholder-[#B4B4BB]
                         w-full outline-none p-[20px] resize-none h-[130px]"
-                        placeholder="توضیح دلخواه (اختیاری)"></textarea>
+                        placeholder="* جزییات پروژه شامل (چه چیزی در ذهن دارید؟
+                         / چه مشکلی قراره حل بشه؟ / بودجه حدودی؟)"></textarea>
                 </div>
 
 
@@ -121,4 +135,4 @@ const OnlineForm: FC<OnlineFormProps> = ({ setShowForm }) => {
             </div>
         </Slide>
     )
-}; export default OnlineForm;
+}; export default ExplainProject;

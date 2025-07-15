@@ -8,28 +8,26 @@ import CalendarIcon from "@/components/icons/header/calendar";
 import CloseIcon from "@/icons/header/close";
 import ClockIcon from "@/components/icons/header/clock";
 
-interface OnlineFormProps {
+interface CheckFreeProjectProps {
     setShowForm: React.Dispatch<React.SetStateAction<boolean>>
 }
 
 
 
 
-const OnlineForm: FC<OnlineFormProps> = ({ setShowForm }) => {
+const CheckFreeProject: FC<CheckFreeProjectProps> = ({ setShowForm }) => {
 
     const [meetingTopic, setMeetingTopic] = useState<string>("");
-    const [businessType, setBusinessType] = useState<string>("");
-    const [meetingTime, setMeetingTime] = useState<string>("");
 
     return (
         <Slide direction="up" duration={400} triggerOnce>
-            <div className="md:gap-32 flex items-center justify-between mt-12 md:my-0 mx-[30px]">
+            <div className="md:gap-32 flex items-center justify-between mt-12 md:my-0 mx-[30px] md:gap-32">
                 <div>
                     <p className="text-[#2B2B2B] font-[600] text-[14px] mb-1 md:text-[16px]">
-                        فرم درخواستی جلسه حضوری، آنلاین
+                        فرم درخواست بررسی رایگان پروژه، وبسایت
                     </p>
                     <p className="text-[#5A6166] font-[500] text-[12px] md:text-[14px]">
-                        برای آشنایی، گفت و گوی اولیه یا بررسی کلیه پروژه
+                        اگه میخواید سیستم فعلیتون بررسی بشه و پیشنهاد حرفه ای بگیرید.
                     </p>
                 </div>
 
@@ -48,7 +46,7 @@ const OnlineForm: FC<OnlineFormProps> = ({ setShowForm }) => {
                         type="text"
                         className="text-[#2F2F2F] font-semibold text-[12px] placeholder-[#B4B4BB]
                         w-full outline-none p-[20px]"
-                        placeholder="نام و نام خانوادگی خود را وارد نمایید"
+                        placeholder="* نام و نام خانوادگی خود را وارد نمایید"
                     />
                 </div>
 
@@ -58,49 +56,28 @@ const OnlineForm: FC<OnlineFormProps> = ({ setShowForm }) => {
                         type="text"
                         className="text-[#2F2F2F] font-semibold text-[12px] placeholder-[#B4B4BB]
                         w-full outline-none p-[20px]"
-                        placeholder="شماره تماس خود را وارد نمایید"
+                        placeholder="* شماره تماس خود را وارد نمایید"
                     />
                 </div>
 
                 <DropDownInput
-                    items={["مشاوره اولیه", "بررسی ایده", "بررسی پروژه جاری",
-                        "طراحی یا توسعه وبسایت", "طراحی اپلیکیشن", "همکاری یا دعوت به تیم"
+                    items={["وبسایت شرکتی", "فروشگاه اینترنتی", "پنل مدیریت (CRM)",
+                        "ربات تلگرام / پلتفرم خاص ", "پروژه برنامه نویسی سفارش"
                     ]}
-                    placeholder="موضوع جلسه"
+                    placeholder="موضوع پروژه یا پروژه فعلی"
                     value={meetingTopic}
                     setValue={setMeetingTopic}
                 />
 
-                <DropDownInput
-                    items={["فروشگاهی", "خدماتی", "آموزشی", "استارتاپی", "شخصی"]}
-                    placeholder="زمینه فعالیت، نوع کسب و کار"
-                    setValue={setBusinessType}
-                    value={businessType}
-                />
-
                 <div className="md:col-span-1 col-span-2 bg-[#F9F9F9] border-[1.3px] border-[#EFEFEF]
-                    rounded-[10px] flex items-center justify-between">
-                    <DatePicker
-                        locale={FaLocale}
-                        calendar={Persion}
-                        inputClass="text-[#2F2F2F] font-semibold text-[12px] placeholder-[#B4B4BB]
+                    rounded-[10px]">
+                    <input
+                        type="text"
+                        className="text-[#2F2F2F] font-semibold text-[12px] placeholder-[#B4B4BB]
                         w-full outline-none p-[20px]"
-                        placeholder="تاریخ مناسب برای جلسه"
+                        placeholder="آدرس پروژه یا لینک سایت (در صورت وجود)"
                     />
-                    <div className="size-[20px] mx-[20px]">
-                        <CalendarIcon />
-                    </div>
                 </div>
-
-                <DropDownInput
-                    items={["ساعت ۹:۰۰ تا ۱۰:۰۰", "ساعت ۱۰:۰۰ تا ۱۱:۰۰", "ساعت ۱۱:۰۰ تا ۱۲:۰۰",
-                        "ساعت ۱۲:۰۰ تا ۱۳:۰۰", "ساعت ۱۳:۰۰ تا ۱۴:۰۰", "ساعت ۱۴:۰۰ تا ۱۵:۰۰"
-                    ]}
-                    placeholder="ساعت مناسب برای جلسه"
-                    setValue={setMeetingTime}
-                    value={meetingTime}
-                    icon={<div className="size-[20px]"><ClockIcon /></div>}
-                />
 
                 <div className="col-span-2 bg-[#F9F9F9] border-[1.3px] border-[#EFEFEF]
                     rounded-[10px]">
@@ -115,10 +92,10 @@ const OnlineForm: FC<OnlineFormProps> = ({ setShowForm }) => {
                 <div className="col-span-2">
                     <div className=" bg-[#524CF2] p-[14px] rounded-[10px] cursor-pointer w-full md:w-fit">
                         <p className="text-center w-full text-[#FFFFFF] text-[14px] font-[500]
-                        ">درخواست جلسه ثبت کن!</p>
+                        ">بفرست بررسی کنم</p>
                     </div>
                 </div>
             </div>
         </Slide>
     )
-}; export default OnlineForm;
+}; export default CheckFreeProject;
