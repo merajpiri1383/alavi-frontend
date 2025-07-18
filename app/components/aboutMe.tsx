@@ -11,19 +11,35 @@ import { Slide } from "react-awesome-reveal";
 
 interface ItemType {
     title: string,
-    text: string,
+    sub_title: string,
 }
 
-const Item: FC<ItemType> = ({ title, text }) => {
+
+interface ItemGroupType {
+    title : string,
+    items : ItemType[],
+}
+
+const Item: FC<ItemType> = ({ title, sub_title }) => {
     return (
         <div className="bg-[#F6F6F6] my-3 p-3 min-w-48 col-span-1 md:w-full rounded-lg">
             <p className="text-sm font-medium text-[#2B2B2B]">{title}</p>
-            <p className="text-xs text-[#8B8B9A] mt-1">{text}</p>
+            <p className="text-xs text-[#8B8B9A] mt-1">{sub_title}</p>
         </div>
     )
 }
 
-const AboutMeImage = () => {
+
+
+type AboutMeProps = {
+    text : string | null,
+    left_image : string | null,
+    left_text : string | null,
+    items : ItemGroupType[],
+}
+
+
+const AboutMeImage : FC = () => {
     return (
         <div className="bg-[#F6F6F6] col-span-1 h-fit mr-8 py-3 rounded-tr-3xl rounded-br-[6rem] relative">
             <div className="w-fit mx-auto my-12 relative z-[3]">
@@ -83,7 +99,7 @@ const Box: FC<BoxType> = ({ title, data }) => {
                         return (
                             <Item
                                 title={item.title}
-                                text={item.text}
+                                sub_title={item.sub_title}
                                 key={index}
                             />
                         )
@@ -97,9 +113,10 @@ const Box: FC<BoxType> = ({ title, data }) => {
 
 interface StoryProps {
     open: boolean,
+    text : string | null,
 }
 
-const Story: FC<StoryProps> = ({ open }) => {
+const Story: FC<StoryProps> = ({ open , text }) => {
     const ref = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
@@ -115,73 +132,14 @@ const Story: FC<StoryProps> = ({ open }) => {
             className={`rtl my-6 ${open ? "story-open" : "story-close"} transition 
             duration-400 overflow-hidden`}>
             <p className="text-sm font-semibold md:text-xl text-[#2B2B2B]">داستان کوتاه من</p>
-            <p className="text-xs text-[#727379] leading-6 my-3 text-justify">لورم ایپسوم متن ساختگی
-                با تولید سادگی نامفهوم از صنعت چاپ، و با اینکه آن استفاده از طراحان گرافیک است
-                ، چاپگرها و متون جذاب از آنها برای آزمایشی بلکه روزنامه و مجله در ستون و سطرآنچنان
-                که لازم است لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با اینکه آن
-                استفاده از طراحان گرافیک است، چاپگرها و متون جذاب از آنها برای آزمایشی بلکه روزنامه و
-                مجله در ستون و سطرآنچنان که لازم است. لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از
-                صنعت چاپ، و با اینکه آن استفاده از طراحان گرافیک است، چاپگرها و متون جذاب از آنها برای
-                آزمایشی بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است. لورم ایپسوم متن ساختگی با
-                تولید سادگی نامفهوم از صنعت چاپ، و با اینکه آن استفاده از طراحان گرافیک است، چاپگرها
-                و متون جذاب از آنها برای آزمایشی بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است.</p>
-
-            <p className="text-xs text-[#727379] leading-6 my-3 text-justify">لورم ایپسوم متن ساختگی
-                با تولید سادگی نامفهوم از صنعت چاپ، و با اینکه آن استفاده از طراحان گرافیک است
-                ، چاپگرها و متون جذاب از آنها برای آزمایشی بلکه روزنامه و مجله در ستون و سطرآنچنان
-                که لازم است لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با اینکه آن
-                استفاده از طراحان گرافیک است، چاپگرها و متون جذاب از آنها برای آزمایشی بلکه روزنامه و
-                مجله در ستون و سطرآنچنان که لازم است. لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از
-                صنعت چاپ، و با اینکه آن استفاده از طراحان گرافیک است، چاپگرها و متون جذاب از آنها برای
-                آزمایشی بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است. لورم ایپسوم متن ساختگی با
-                تولید سادگی نامفهوم از صنعت چاپ، و با اینکه آن استفاده از طراحان گرافیک است، چاپگرها
-                و متون جذاب از آنها برای آزمایشی بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است.</p>
+            <p className="text-xs text-[#727379] leading-6 my-3 text-justify">{text}</p>
         </div>
     )
 }
 
-const AboutMe: FC = () => {
+const AboutMe: FC<AboutMeProps> = (props) => {
 
     const [open, setOpen] = useState<true | false>(false);
-
-    const hobbies: ItemType[] = [
-        {
-            title: "دوچرخه سواری",
-            text: "cycling"
-        }, {
-            title: "والیبال",
-            text: "volleyball"
-        }, {
-            title: "کوه نوردی",
-            text: "Mountaineering"
-        },
-    ]
-
-    const writers: ItemType[] = [
-        {
-            title: "آلکارن جیمزان",
-            text: "Alcarren Jameson",
-        }, {
-            title: "الکس والتارن",
-            text: "Alex Walthern",
-        }, {
-            title: "جیسون استتهام",
-            text: "Jason Statham",
-        },
-    ]
-
-    const favorites: ItemType[] = [
-        {
-            title: "موسیقی گوش دادن",
-            text: "Listen to music"
-        }, {
-            title: "فیلم دیدن",
-            text: "watching movies"
-        }, {
-            title: "پیاده روی کردن",
-            text: "to walk"
-        },
-    ]
 
     return (
         <div className={`grid grid-cols-1 md:grid-cols-3`}>
@@ -194,10 +152,21 @@ const AboutMe: FC = () => {
             </Slide>
             <div
                 className={`col-span-1 md:col-span-2 px-6 md:pl-20 md:mr-10 md:pr-10`}>
-                <Box title="تفریحات من" data={hobbies} />
-                <Box title="نویسنده مورد علاقم" data={writers} />
-                <Box title="علایق من" data={favorites} />
-                <Story open={open} />
+                    {
+                        props?.items.map((itemGroup,index) => {
+                            return (
+                                <Box
+                                    key={index}
+                                    title={itemGroup.title}
+                                    data={itemGroup.items}
+                                />
+                            )
+                        })
+                    }
+                <Story 
+                    open={open}
+                    text={props.text}
+                />
             </div>
             <div className="col-span-1"></div>
             <div

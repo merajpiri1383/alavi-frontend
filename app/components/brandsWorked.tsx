@@ -1,40 +1,42 @@
 import { FC, memo } from "react";
-import Image, { StaticImageData } from "next/image";
+import Image from "next/image";
 import { Slide } from "react-awesome-reveal";
 import CroneIcon from "@/components/icons/home/crown";
-import Logo1 from "@/public/images/Logo01 1.svg";
-import Logo2 from "@/public/images/novin 1.svg";
-import Logo3 from "@/public/images/Logo03 1.svg";
-import Logo4 from "@/public/images/Logo04 1.svg";
-import Logo5 from "@/public/images/sheypoor 1.svg";
-import Logo6 from "@/public/images/Logo07 1.svg";
 
 interface ItemProps {
-    image: StaticImageData,
+    image : string,
 }
 
+
 const Item: FC<ItemProps> = ({ image }) => {
+
     return (
         <div
             className="col-span-1 bg-white mx-2 rounded-xl flex items-center justify-center relative">
             <div className="md:w-[190px] md:h-[61px] py-6 h-[33px] w-[102px] relative mx-6 my-2">
-                <Image
-                    src={image}
-                    alt="logo1"
-                    style={{ objectFit: "contain", objectPosition: "center" }}
-                    sizes="100%"
-                    loading="lazy"
-                    fill={true}
-                />
+                {
+                    image && <Image 
+                        src={image}
+                        alt="image"
+                        fill={true}
+                        sizes="100%"
+                        className="rounded-[10px]"
+                        style={{objectFit : "cover",objectPosition : "center"}}
+                    />
+                }
             </div>
         </div>
     )
 };
 
-const BrandsWorked = () => {
 
+type BrandProps = {
+    title: string | null,
+    sub_title: string | null,
+    items: ItemProps[],
+}
 
-    const images = [Logo1, Logo2, Logo3, Logo4, Logo5, Logo6]
+const BrandsWorked: FC<BrandProps> = ({ items, sub_title, title }) => {
 
     return (
         <div className="rtl my-12 px-6 md:px-20 relative">
@@ -45,12 +47,8 @@ const BrandsWorked = () => {
                     </div>
                 </div>
                 <div>
-                    <p className="font-semibold text-sm md:text-base">
-                        برندهایی که باهاشون همکاری کردم
-                    </p>
-                    <p className="text-xs md:text-sm mt-2 text-[#696973]">
-                        برند های تاپ شرکت های که افتخار کار باهاشون داشتم!
-                    </p>
+                    <p className="font-semibold text-sm md:text-base">{title}</p>
+                    <p className="text-xs md:text-sm mt-2 text-[#696973]">{sub_title}</p>
                 </div>
             </div>
 
@@ -58,8 +56,8 @@ const BrandsWorked = () => {
                 <div className="flex z-5 overflow-x-scroll no-scrollbar  md:py-0 md:grid 
                 md:grid-cols-6 relative md:gap-4">
                     {
-                        images.map((item, index) => {
-                            return <Item image={item} key={index} />
+                        items.map((item, index) => {
+                            return <Item image={item.image}  key={index} />
                         })
                     }
                 </div>

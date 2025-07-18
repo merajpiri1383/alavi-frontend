@@ -2,28 +2,29 @@ import type { Metadata } from "next";
 import localFont from 'next/font/local';
 import "./globals.css";
 import dynamic from "next/dynamic";
+import ReactQueryProvider from "@/utils/providers/reactQuery";
 
 const yekanBakhFont = localFont({
-    src : [
+    src: [
         {
-            path : "../public/fonts/YekanBakh-VF.ttf",
-            style : "normal"
+            path: "../public/fonts/YekanBakh-VF.ttf",
+            style: "normal"
         }
     ],
-    variable : "--font-yekan-bakh"
+    variable: "--font-yekan-bakh"
 })
 
 const SheedFont = localFont({
-    src : [
+    src: [
         {
-            path : "../public/fonts/TKT-Sheed semi bold.otf",
-            style : "normal",
+            path: "../public/fonts/TKT-Sheed semi bold.otf",
+            style: "normal",
         },
     ],
-    variable : "--font-sheed"
+    variable: "--font-sheed"
 })
 
-const Header = dynamic(() => import("@/components/header/index"),{ssr : true});
+const Header = dynamic(() => import("@/components/header/index"), { ssr: true });
 const Footer = dynamic(() => import("@/components/footer"), { ssr: true });
 
 
@@ -42,9 +43,11 @@ export default function RootLayout({
             <body
                 className={`${yekanBakhFont.variable} ${SheedFont.variable}`}
             >
-                <Header />
-                {children}
-                <Footer />
+                <ReactQueryProvider>
+                    <Header />
+                    {children}
+                    <Footer />
+                </ReactQueryProvider>
             </body>
         </html>
     );

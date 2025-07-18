@@ -1,32 +1,36 @@
 "use client"
-import { FC } from "react";
+import { FC, useState } from "react";
 import dynamic from "next/dynamic";
 import { Slide } from "react-awesome-reveal";
 import VerifyIcon from "@/components/icons/home/verify";
-import { ProjectType, ProjectsProps } from "@/app/components/types";
-const Project = dynamic(() => import("@/app/components/project"), { ssr: true })
+import { ProjectType, ProjectsProps, DoneProjectsProps, ProjectItemProps } from "@/app/components/types";
+const Project = dynamic(() => import("@/app/components/project"), { ssr: true });
 
 
 
-const ProjectItem: FC<ProjectType> = ({ text, title }) => {
+const ProjectItem: FC<ProjectItemProps> = (props) => {
+
     return (
-        <div className="border group md:mb-10 border-[#E1E1E1] 
+        <div
+            onClick={() => props.setProject(props.project)}
+            className={`border group md:mb-10 border-[#E1E1E1] 
+                ${props.project === props.currentProject ? "bg-[#292D32]" :""}
                 p-3 md:col-span-1 rounded-xl hover:bg-[#292D32] transition h-fit
-                active:bg-[#292D32]
-                duration-[400ms] cursor-pointer min-w-48  overflow-hidden rtl md:mr-4">
-            <p className="text-sm text-[#2F2F2F] group-hover:text-[#FFFFFF] 
-                transition duration-[300ms] group-active:text-[#FFFFFF]">
-                {title}
+                duration-[400ms] cursor-pointer min-w-48  overflow-hidden rtl md:mr-4`}>
+            <p className={`text-sm group-hover:text-[#FFFFFF]
+                ${props.project === props.currentProject ? "text-[#FFFFFF]" :"text-[#2F2F2F]"}
+                transition duration-[300ms] group-active:text-[#FFFFFF]`}>
+                {props.project?.title}
             </p>
             <p className="text-xs mt-2 min-w-36 text-[#8B8B9A]  active-group:text-[#AAAAB5]
                 hover-group:text-[#AAAAB5] h-4 overflow-hidden">
-                {text}
+                {props.project?.text}
             </p>
         </div>
     )
 };
 
-const Projects: FC<ProjectsProps> = ({ projects }) => {
+const Projects: FC<ProjectsProps> = ({ items, currentProject, setProject }) => {
 
 
     return (
@@ -34,12 +38,13 @@ const Projects: FC<ProjectsProps> = ({ projects }) => {
             <div
                 className={`md:hidden flex gap-4 no-scrollbar overflow-x-scroll [direction:rtl]`}>
                 {
-                    projects.map((project, index) => {
+                    items.map((project, index) => {
                         return (
                             <ProjectItem
-                                title={project.title}
-                                text={project.text}
                                 key={index}
+                                project={project}
+                                setProject={setProject}
+                                currentProject={currentProject}
                             />
                         )
                     })
@@ -50,12 +55,13 @@ const Projects: FC<ProjectsProps> = ({ projects }) => {
                 className={`md:grid hidden grid-cols-1 gap-4 h-80 
                     overflow-y-scroll overflow-hidden [direction:ltr]`}>
                 {
-                    projects.map((project, index) => {
+                    items.map((project, index) => {
                         return (
                             <ProjectItem
-                                title={project.title}
-                                text={project.text}
                                 key={index}
+                                project={project}
+                                currentProject={currentProject}
+                                setProject={setProject}
                             />
                         )
                     })
@@ -67,32 +73,9 @@ const Projects: FC<ProjectsProps> = ({ projects }) => {
 
 
 
-const DoneProjects: FC = () => {
+const DoneProjects: FC<DoneProjectsProps> = ({ items, sub_title, title }) => {
 
-    const projects: ProjectType[] = [
-        {
-            title: "کیمیا صعنت پارسه",
-            text: "Building materials store"
-        }, {
-            title: "آژانس زروان تریپ",
-            text: "Booking hotel agency iran"
-        }, {
-            title: "شرکت متزون",
-            text: "Digital marketing company"
-        }, {
-            title: "شرکت هومنگر",
-            text: "House buying and selling company"
-        }, {
-            title: "آژانس زروان تریپ",
-            text: "Booking hotel agency iran"
-        }, {
-            title: "شرکت متزون",
-            text: "Digital marketing company"
-        }, {
-            title: "شرکت هومنگر",
-            text: "House buying and selling company"
-        },
-    ]
+    const [currentProject, setProject] = useState<ProjectType | null>(items?.length > 0 ? items[0] : null);
 
     return (
         <div className="bg-white rtl my-12 px-6 md:px-20 relative">
@@ -104,20 +87,23 @@ const DoneProjects: FC = () => {
                     </div>
                 </div>
                 <div>
-                    <p className="font-semibold text-sm md:text-base">
-                        پروژه های انجام شده
-                    </p>
-                    <p className="text-xs md:text-sm mt-2 text-[#696973]">
-                        بیش از چندین پروژه های موفقیت آمیز بنده!
-                    </p>
+                    <p className="font-semibold text-sm md:text-base">{title}</p>
+                    <p className="text-xs md:text-sm mt-2 text-[#696973]">{sub_title}</p>
                 </div>
             </div>
             <div className="grid grid-cols-9 gap-8">
                 <div className="col-span-9 md:col-span-2">
-                    <Projects projects={projects} />
+                    <Projects
+                        items={items}
+                        currentProject={currentProject}
+                        setProject={setProject}
+                    />
                 </div>
                 <div className="col-span-9 md:col-span-7">
-                    <Project text="" title="" />
+                    {
+                        currentProject &&
+                        <Project {...currentProject} />
+                    }
                 </div>
             </div>
         </div>

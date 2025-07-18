@@ -10,8 +10,24 @@ import { FC, memo, useEffect, useRef, useState } from "react";
 import { Slide } from "react-awesome-reveal";
 
 
+type ExperienceProps = {
+    id: string | null,
+    title: string | null,
+    sub_title: string | null,
+    image: string | null,
+    description: string | null,
+    link: string | null,
+    date: string | null,
+}
 
-const Experience = () => {
+type MyExperienceProps = {
+    title: string,
+    sub_title: string,
+    items: ExperienceProps[],
+}
+
+
+const Experience: FC<ExperienceProps> = (props) => {
 
     const [showLink, setShowlink] = useState(false);
     const linkRef = useRef<HTMLDivElement>(null);
@@ -22,26 +38,27 @@ const Experience = () => {
             <div className="flex items-center justify-start gap-4">
                 <div className="size-[55px] bg-[#F3F3F3] rounded-[8px] flex items-center justify-center">
                     <div className="size-[33px] relative">
-                        <Image
-                            src={ZaravanIcon}
-                            alt="zaravan icon"
-                            fill={true}
-                            sizes="100%"
-                            priority={false}
-                            style={{ objectFit: "cover", objectPosition: "center" }}
-                        />
+                        {
+                            props.image &&
+                            <Image
+                                src={props.image}
+                                alt="zaravan icon"
+                                fill={true}
+                                sizes="100%"
+                                priority={false}
+                                className="rounded-[8px]"
+                                style={{ objectFit: "cover", objectPosition: "center" }}
+                            />
+                        }
                     </div>
                 </div>
                 <div className="text-[#2B2B2B] text-[12px]">
-                    <p className="font-[700]">تیم لید بک اند زروان تریپ</p>
-                    <p className="font-[400] mt-2">Team Lead backend Zarvantrip</p>
+                    <p className="font-[700]">{props.title}</p>
+                    <p className="font-[400] mt-2">{props.sub_title}</p>
                 </div>
             </div>
             <p className="text-[12px] text-[#727379] my-2 text-justify font-[600] leading-6">
-                لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با
-                استفاده از طراحان گرافیک است. لورم ایپسوم متن ساختگی با تولید سادگی
-                نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. لورم ایپسوم متن ساختگی
-                با تولید سادگی نامفهوم از صنعت چاپ است نامفهوم از صنعت چاپ و با استفاده میباشد.</p>
+                {props.description}</p>
             <div className="flex items-center justify-start gap-3">
                 <div className="text-[#2B2B2B] font-[600] text-[10px] bg-[#E7E7E7] p-3
                 rounded-[6px]">مطالعه بیشتر</div>
@@ -53,15 +70,15 @@ const Experience = () => {
                     <div className="size-[15px]">
                         <BrowserIcon hoverColor="#524CF2" />
                     </div>
-                    <p 
+                    <p
                         ref={linkRef}
                         style={{
-                            "--link-width" : linkRef.current?.getBoundingClientRect().width + "px"
+                            "--link-width": linkRef.current?.getBoundingClientRect().width + "px"
                         } as React.CSSProperties}
                         className={`text-[#524CF2] text-[12px] font-[600]
                             transition duration-500 ${showLink ? "show-link" : "hide-link"}`}>
-                            https://zarvantrip.com
-                        </p>
+                        {props.link}
+                    </p>
                 </div>
             </div>
         </Slide>
@@ -70,15 +87,16 @@ const Experience = () => {
 
 interface ItemProps {
     index: number,
+    experience: ExperienceProps
 }
 
-const Item: FC<ItemProps> = ({ index }) => {
+const Item: FC<ItemProps> = ({ index, experience }) => {
     return (
         <div className={`grid grid-cols-10 gap-2 group ${index % 2 === 0 && "md:[direction:ltr]"}
             md:flex justify-between`}>
 
             <p className={`hidden md:block w-[45vw] ${index % 2 === 0 ? "text-right" : "text-left"}
-            text-[16px] font-[600] text-[#2B2B2B]`}>دی ماه ۱۴۰۲ - اسفند ماه ۱۴۰۳</p>
+            text-[16px] font-[600] text-[#2B2B2B]`}>{experience.date}</p>
             <div className="h-full col-span-1">
                 <div className="size-[20px] mx-auto mt-15 md:mt-0">
                     <EllipseIcon color="#A5A5A5" hoverColor="#524CF2" />
@@ -89,15 +107,14 @@ const Item: FC<ItemProps> = ({ index }) => {
             </div>
             <div className="col-span-9 md:w-[45vw] rtl">
                 <p className="text-[12px] mb-6 md:hidden">دی ماه ۱۴۰۲ - اسفند ماه ۱۴۰۳</p>
-                <Experience />
+                <Experience {...experience} />
             </div>
         </div>
     )
 };
 
-const MyExperience = () => {
+const MyExperience: FC<MyExperienceProps> = (props) => {
 
-    const items = [1, 2, 3, 4, 5];
     const [showMore, setShowMore] = useState<true | false>(false);
     const contentRef = useRef<HTMLDivElement>(null);
 
@@ -105,7 +122,7 @@ const MyExperience = () => {
         if (contentRef.current) {
             contentRef.current.style.setProperty("--show-height", contentRef.current.scrollHeight + "px")
         }
-    } ,[]);
+    }, []);
 
     return (
         <div className="rtl mb-12 px-6 md:px-20 relative" id="my_experience">
@@ -116,9 +133,9 @@ const MyExperience = () => {
                     </div>
                 </div>
                 <div>
-                    <p className="font-semibold text-sm md:text-base">تجربیات کاری من</p>
+                    <p className="font-semibold text-sm md:text-base">{props.title}</p>
                     <p className="text-xs md:text-sm mt-2 text-[#696973]">
-                        شروع قوی، ادامه بی انتها در عمق کهکشان!
+                        {props.sub_title}
                     </p>
                 </div>
             </div>
@@ -127,17 +144,18 @@ const MyExperience = () => {
                 ref={contentRef}
                 className={`grid grid-cols-1 
                 ${!showMore ? "experience-hide " : "experience-show"} overflow-hidden`}>
-                    {
-                        items.map((item, index) => {
-                            return (
-                                <Item
-                                    key={index}
-                                    index={index}
-                                />
-                            )
-                        })
-                    }
-                </div>
+                {
+                    props.items.map((item, index) => {
+                        return (
+                            <Item
+                                key={index}
+                                index={index}
+                                experience={item}
+                            />
+                        )
+                    })
+                }
+            </div>
             <div className="flex items-center justify-start z-[2] md:justify-center">
                 <div className="flex items-center justify-start gap-4 md:flex-col cursor-pointer"
                     onClick={() => setShowMore(!showMore)}>

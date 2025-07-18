@@ -9,7 +9,18 @@ import { useDeviceType } from "@/utils/hook/deviceType";
 
 const IntroductionImages = dynamic(() => import("@/app/components/introductionImages"),{ssr : false});
 
-const Introduction: FC = () => {
+
+interface IntroductionProps {
+    title : string | null,
+    sub_title : string | null,
+    text : string | null,
+    resume : string | null,
+    left_top_image : string | null,
+    left_bottom_image : string | null,
+    right_top_image : string | null,
+}
+
+const Introduction: FC<IntroductionProps> = (props) => {
 
     const deviceType = useDeviceType();
 
@@ -25,7 +36,7 @@ const Introduction: FC = () => {
                 {/* Main Content */}
                 <div className="flex items-center justify-start gap-1 rtl relative z-10">
                     <h1 className="text-[#0D0E11] font-[900] text-[17.24px] md:text-3xl font-sheed
-                    md:text-[40px]">علیرضا علوی هستم!</h1>
+                    md:text-[40px]">{props.title}</h1>
                     <div className="size-12 md:size-16 relative">
                         <Image
                             src={AlirezaEmoji}
@@ -39,14 +50,9 @@ const Introduction: FC = () => {
                     </div>
                 </div>
                 <p className="text-[13.91px] md:text-[30px] z-10 relative text-[#4B5BCE] font-[600] 
-                font-sheed "
-                >راهبر پروژه های دیجیتال و طراح تجربه فنی برای کسب و کار ها</p>
-                <p className="text-xs md:text-sm text-justify my-2 text-[#69696F] leading-6 z-10">لورم ایپسوم
-                    متن ساختگی با تولید
-                    سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. لورم
-                    ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده
-                    از طراحان گرافیک است. لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم
-                    از صنعت چاپ است نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.</p>
+                font-sheed ">{props.sub_title}</p>
+                <p className="text-xs md:text-sm text-justify my-2 text-[#69696F] leading-6 z-[10]
+                 relative">{props.text}</p>
 
                 <div className="flex items-center justify-start my-6 gap-4">
                     <div className="flex items-center justify-center rounded-lg p-3 px-4 bg-[#252525]
@@ -67,7 +73,11 @@ const Introduction: FC = () => {
             {
                 deviceType === "desktop" &&
                 <section className="col-span-2">
-                    <IntroductionImages />
+                    <IntroductionImages
+                        left_bottom_image={props.left_bottom_image}
+                        left_top_image={props.left_top_image}
+                        right_top_image={props.right_top_image}
+                    />
                 </section>
             }
         </section>

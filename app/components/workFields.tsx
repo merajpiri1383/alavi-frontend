@@ -1,4 +1,5 @@
 import { FC, memo } from "react";
+import Image, { StaticImageData } from "next/image";
 import { Slide } from "react-awesome-reveal";
 import DocumentIcon from "@/components/icons/home/document";
 import NetIcon from "@/components/icons/home/net";
@@ -9,62 +10,46 @@ import BoxIcon from "@/components/icons/home/box";
 
 
 interface ItemProps {
-    icon: React.ReactNode,
-    active_icon: React.ReactNode,
+    icon: StaticImageData,
     title: string,
-    text: string,
+    sub_title: string,
 }
 
-const Item: FC<ItemProps> = ({ active_icon, icon, text, title }) => {
+const Item: FC<ItemProps> = ({ icon, sub_title, title }) => {
     return (
         <article className="relative py-2 md:py-6 mb-2 md:mb-6 group cursor-pointer col-span-1
             transition duration-400 md:border-[2px] border-[#E1E1E1] hover:border-[#4B5BCE] 
             rounded-[20px] min-w-[135px] hover:shadow-[0_0_20px_rgba(0,0,0,0.25)] border-[1.5px]">
-            <div className="relative z-10 size-[32px] md:size-[55px] mx-auto my-2 group-hover:hidden">
-                {icon}
-            </div>
-            <div className="size-[32px] relative md:size-[55px] z-10 mx-auto my-2 hidden group-hover:block">
-                {active_icon}
+
+            <div className="relative size-[32px] md:size-[55px] mx-auto my-2">
+                {
+                    icon && <Image
+                        alt={title}
+                        src={icon}
+                        fill={true}
+                        sizes="100%"
+                        className="rounded-[10px]"
+                        style={{objectFit : "cover",objectPosition : "center"}}
+                    />
+                }
             </div>
             <p className="text-[#2B2B2B] z-10 text-[10px] text-center font-[700] my-2
                 md:text-[16px] mt-6">{title}</p>
             <p className="text-[#727379] z-10 text-[8px] text-center my-2
-            font-[400] md:text-[16px]">{text}</p>
+            font-[400] md:text-[16px]">{sub_title}</p>
         </article>
     )
 }
 
 
-const WorkFields = () => {
 
-    const items = [
-        {
-            icon: <NetIcon color={"#2B2B2B"} />,
-            active_icon: <NetIcon color={"#524CF2"} />,
-            title: "طراحی و توسعه وﺑﺴﺎﯾﺖ",
-            text: "Website Development",
-        }, {
-            icon: <DocumentCode color={"#2B2B2B"} />,
-            active_icon: <DocumentCode color={"#524CF2"} />,
-            title: "برنامه نویسی اختصاصی",
-            text: "Dedicated programming",
-        }, {
-            icon: <DriverIcon color={"#2B2B2B"} />,
-            active_icon: <DriverIcon color={"#524CF2"} />,
-            title: "خدمات سرور و شبکه",
-            text: "Server & Networking",
-        }, {
-            icon: <FireIcon color={"#2B2B2B"} />,
-            active_icon: <FireIcon color={"#524CF2"} />,
-            title: "توسعه هوش مصنوعی",
-            text: "Development of AI",
-        }, {
-            icon: <BoxIcon color={"#2B2B2B"} />,
-            active_icon: <BoxIcon color={"#524CF2"} />,
-            title: "ماشین لرنینگ",
-            text: "Machine Learning",
-        }
-    ]
+type WorkFieldsProps = {
+    title: string | null,
+    sub_title: string | null,
+    items: ItemProps[]
+}
+
+const WorkFields: FC<WorkFieldsProps> = (props) => {
 
     return (
         <div className="rtl mt-12 px-6 md:px-20" id="workfields">
@@ -75,8 +60,8 @@ const WorkFields = () => {
                     </div>
                 </div>
                 <div>
-                    <p className="font-semibold text-sm md:text-base">زمینه های کاری من</p>
-                    <p className="text-xs md:text-sm mt-2 text-[#696973]">خدمات و سرویس های اراﺋﻪ دهنده</p>
+                    <p className="font-semibold text-sm md:text-base">{props.title}</p>
+                    <p className="text-xs md:text-sm mt-2 text-[#696973]">{props.sub_title}</p>
                 </div>
             </div>
 
@@ -84,13 +69,12 @@ const WorkFields = () => {
                 <div className="py-6 flex items-center overflow-x-scroll md:grid grid-cols-5 gap-3
                     no-scrollbar md:gap-6">
                     {
-                        items.map((item, index) => {
+                        props?.items?.map((item, index) => {
                             return (
                                 <Item
                                     key={index}
-                                    active_icon={item.active_icon}
                                     icon={item.icon}
-                                    text={item.text}
+                                    sub_title={item.sub_title}
                                     title={item.title}
                                 />
                             )

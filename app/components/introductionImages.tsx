@@ -5,7 +5,7 @@ import Image3 from "@/public/images/3.svg";
 import CodeIcon from "@/components/icons/home/code";
 import GitIcon from "@/components/icons/home/git";
 import { Slide } from "react-awesome-reveal";
-import { memo } from "react";
+import { FC, memo } from "react";
 import Icon2 from "@/icons/home/halfCicle2";
 import ArrowLeftIcon from "@/components/icons/home/arrowLeft";
 
@@ -71,20 +71,32 @@ const MachineLearningBox = memo(() => {
 
 MachineLearningBox.displayName = "MachineLearningBox"
 
-const IntroductionImages = () => {
+
+interface Props {
+    left_top_image: string | null,
+    left_bottom_image: string | null,
+    right_top_image: string | null,
+}
+
+const IntroductionImages: FC<Props> = ({ left_bottom_image, left_top_image, right_top_image }) => {
+
     return (
         <div className="grid grid-cols-2 items-center gap-4">
             <div className="col-span-1 grid grid-cols-1 h-full">
                 <div className="col-span-1 relative h-64 w-full self-start">
                     <div className="h-64 w-full relative">
-                        <Image
-                            src={Image2}
-                            alt="image1"
-                            style={{ objectFit: "cover", objectPosition: "center" }}
-                            priority={false}
-                            fill={true}
-                            sizes="100%"
-                        />
+                        {
+                            right_top_image &&
+                            <Image
+                                src={right_top_image}
+                                alt="image1"
+                                style={{ objectFit: "cover", objectPosition: "center" }}
+                                priority={false}
+                                fill={true}
+                                className="rounded-tr-[30px]"
+                                sizes="100%"
+                            />
+                        }
                     </div>
 
                     <SeniorBox />
@@ -97,28 +109,35 @@ const IntroductionImages = () => {
             <div className="col-span-1 grid grid-cols-1 gap-4 h-full">
                 <div className="col-span-1 self-start">
                     <div className="relative h-48 w-full">
-                        <Image
-                            src={Image3}
-                            alt="image1"
-                            priority={false}
-                            className="rounded-se-[2rem]"
-                            style={{ objectFit: "cover", objectPosition: "center" }}
-                            fill={true}
-                            sizes="100%"
-                        />
+                        {
+                            left_top_image &&
+                            <Image
+                                src={left_top_image}
+                                alt="image1"
+                                priority={false}
+                                className="rounded-se-[2rem]"
+                                style={{ objectFit: "cover", objectPosition: "center" }}
+                                fill={true}
+                                sizes="100%"
+                            />
+                        }
 
                         <MachineLearningBox />
                     </div>
                 </div>
                 <div className="col-span-1 relative self-end h-48 w-full">
-                    <Image
-                        src={Image1}
-                        alt="image1"
-                        priority={false}
-                        style={{ objectFit: "cover", objectPosition: "center" }}
-                        fill={true}
-                        sizes="100%"
-                    />
+                    {
+                        left_bottom_image &&
+                        <Image
+                            src={left_bottom_image}
+                            alt="image1"
+                            priority={false}
+                            style={{ objectFit: "cover", objectPosition: "center" }}
+                            fill={true}
+                            sizes="100%"
+                            className="rounded-bl-[30px]"
+                        />
+                    }
                 </div>
             </div>
         </div>
