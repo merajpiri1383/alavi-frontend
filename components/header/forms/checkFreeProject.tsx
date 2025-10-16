@@ -1,12 +1,7 @@
 import React, { FC, useState } from "react";
 import { Slide } from "react-awesome-reveal";
-import DatePicker from "react-multi-date-picker"
-import Persion from "react-date-object/calendars/persian";
-import FaLocale from "react-date-object/locales/persian_fa"
 import DropDownInput from "@/utils/hook/inputDropdown";
-import CalendarIcon from "@/components/icons/header/calendar";
 import CloseIcon from "@/icons/header/close";
-import ClockIcon from "@/components/icons/header/clock";
 
 interface CheckFreeProjectProps {
     setShowForm: React.Dispatch<React.SetStateAction<boolean>>
